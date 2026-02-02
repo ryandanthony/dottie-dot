@@ -1,0 +1,22 @@
+profiles:
+  default:
+    install:
+      fonts:
+        - name: "JetBrains"
+          url: "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip"
+        - name: "3270 Nerd Font"
+          url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/3270.zip"
+      github:
+        - repo: jqlang/jq
+          asset: "jq-linux-amd64"  # Specific 64-bit Linux binary
+          binary: jq      
+      apt:
+        - tree
+        - htop
+        - curl
+      apt-repo:
+        - name: jfrog-cli
+          key_url: https://releases.jfrog.io/artifactory/api/gpg/key/public
+          repo: "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib"
+          packages: # required
+            - jfrog-cli
