@@ -51,10 +51,8 @@ cd ~/.dottie
 
 ```bash
 # Validate minimal profile
-dottie validate minimal
+dottie validate
 
-# Validate dev profile
-dottie validate dev
 ```
 
 ### 4. Apply the configuration
