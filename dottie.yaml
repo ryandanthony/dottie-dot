@@ -1,22 +1,163 @@
+# Dottie Configuration for KDE Neon (Ubuntu-based)
+# Usage:
+#   dottie validate minimal
+#   dottie validate dev
+#   dottie link -p minimal
+#   dottie link -p dev
+#   dottie install -p minimal
+#   dottie install -p dev
+
 profiles:
-  default:
+  # ============================================================================
+  # MINIMAL PROFILE
+  # Base system with essential CLI tools and shell configuration
+  # ============================================================================
+  minimal:
+    dotfiles:
+      # Bash profile with aliases and Starship integration
+      - source: dotfiles/.bashrc
+        target: ~/.bashrc
+      
+      # Starship prompt configuration
+      - source: dotfiles/starship.toml
+        target: ~/.config/starship.toml
+
+      # Git configuration
+      - source: dotfiles/.gitconfig
+        target: ~/.gitconfig
+
     install:
+      # Fonts - JetBrains Mono (primary dev font with ligatures)
       fonts:
-        - name: "JetBrains"
+        - name: "JetBrainsMono"
           url: "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip"
-        - name: "3270 Nerd Font"
-          url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/3270.zip"
+        - name: "JetBrainsMono Nerd Font"
+          url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
+
+      # GitHub releases - binaries installed to ~/bin
       github:
         - repo: jqlang/jq
-          asset: "jq-linux-amd64"  # Specific 64-bit Linux binary
-          binary: jq      
+          asset: "jq-linux-amd64"
+          binary: jq
+        - repo: starship/starship
+          asset: "starship-x86_64-unknown-linux-gnu.tar.gz"
+          binary: starship
+
+      # APT packages - basic CLI tools
       apt:
-        - tree
-        - htop
+        - git
         - curl
+        - wget
+        - htop
+        - tree
+        - unzip
+        - ca-certificates
+        - gnupg
+        - lsb-release
+        - apt-transport-https
+        - software-properties-common
+
+      # Custom scripts
+      scripts:
+        - scripts/install-starship.sh
+        - scripts/install-powershell.sh
+
+      # APT repositories with packages
       apt-repo:
-        - name: jfrog-cli
-          key_url: https://releases.jfrog.io/artifactory/api/gpg/key/public
-          repo: "deb https://releases.jfrog.io/artifactory/jfrog-debs xenial contrib"
-          packages: # required
-            - jfrog-cli
+        # GitHub CLI
+        - name: github-cli
+          key_url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+          repo: "deb [arch=amd64] https://cli.github.com/packages stable main"
+          packages:
+            - gh
+
+        # Azure CLI
+        - name: azure-cli
+          key_url: https://packages.microsoft.com/keys/microsoft.asc
+          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ jammy main"
+          packages:
+            - azure-cli
+
+        # Helm
+        - name: helm
+          key_url: https://baltocdn.com/helm/signing.asc
+          repo: "deb https://baltocdn.com/helm/stable/debian/ all main"
+          packages:
+            - helm
+
+        # HashiCorp (Terraform)
+        - name: hashicorp
+          key_url: https://apt.releases.hashicorp.com/gpg
+          repo: "deb [arch=amd64] https://apt.releases.hashicorp.com jammy main"
+          packages:
+            - terraform
+
+  # ============================================================================
+  # DEV PROFILE
+  # Full development environment extending minimal profile
+  # ============================================================================
+  dev:
+    extends: minimal
+
+    dotfiles:
+      # PowerShell profile with Starship integration
+      - source: dotfiles/Microsoft.PowerShell_profile.ps1
+        target: ~/.config/powershell/Microsoft.PowerShell_profile.ps1
+
+    install:
+      # APT packages for dev
+      apt:
+        - build-essential
+
+      # Custom scripts for dev tools
+      scripts:
+        - scripts/install-dotnet-sdks.sh
+
+      # APT repositories with packages
+      apt-repo:
+        # Docker
+        - name: docker
+          key_url: https://download.docker.com/linux/ubuntu/gpg
+          repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
+          packages:
+            - docker-ce
+            - docker-ce-cli
+            - containerd.io
+            - docker-buildx-plugin
+            - docker-compose-plugin
+
+        # Google Chrome
+        - name: google-chrome
+          key_url: https://dl.google.com/linux/linux_signing_key.pub
+          repo: "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main"
+          packages:
+            - google-chrome-stable
+
+      # Snap packages
+      snaps:
+        # JetBrains Rider - .NET IDE
+        - name: rider
+          classic: true
+        
+        # Visual Studio Code
+        - name: code
+          classic: true
+        
+        # DataGrip - Database IDE
+        - name: datagrip
+          classic: true
+        
+        # draw.io - Diagramming tool
+        - name: drawio
+          classic: false
+        
+        # Typora - Markdown editor
+        - name: typora
+          classic: false
+
+  # ============================================================================
+  # DEFAULT PROFILE
+  # Alias for dev profile (full development setup)
+  # ============================================================================
+  default:
+    extends: dev
