@@ -101,9 +101,9 @@ style = 'bold dimmed white'
 time_format = '%H:%M'
 
 [character]
-success_symbol = ' [\\$](bold white)'
-error_symbol = ' [\\$](bold red)'
-vimcmd_symbol = ' [\\$](bold green)'
+success_symbol = ' $'
+error_symbol = ' [$ ](bold red)'
+vimcmd_symbol = ' [$ ](bold green)'
 
 [line_break]
 disabled = true
