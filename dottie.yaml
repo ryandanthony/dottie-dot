@@ -63,7 +63,7 @@ profiles:
         - scripts/install-powershell.sh
 
       # APT repositories with packages
-      apt-repos:
+      aptRepos:
         # GitHub CLI
         - name: github-cli
           key_url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
@@ -114,7 +114,7 @@ profiles:
         - scripts/install-dotnet-sdks.sh
 
       # APT repositories with packages
-      apt-repos:
+      aptRepos:
         # Docker
         - name: docker
           key_url: https://download.docker.com/linux/ubuntu/gpg
