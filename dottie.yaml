@@ -81,7 +81,7 @@ profiles:
         # Helm
         - name: helm
           key_url: https://packages.buildkite.com/helm-linux/helm-debian/gpgkey
-          repo: "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main"
+          repo: "deb [signed-by=/etc/apt/trusted.gpg.d/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main"
           packages:
             - helm
 
