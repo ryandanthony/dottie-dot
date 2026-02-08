@@ -42,6 +42,9 @@ profiles:
         - repo: starship/starship
           asset: "starship-x86_64-unknown-linux-gnu.tar.gz"
           binary: starship
+        - repo: github/copilot-cli
+          asset: "copilot-linux-x64.tar.gz"
+          binary: copilot          
 
       # APT packages - basic CLI tools
       apt:
@@ -58,9 +61,7 @@ profiles:
         - software-properties-common
 
       # Custom scripts
-      scripts:
-        - scripts/install-starship.sh
-        - scripts/install-powershell.sh
+      #scripts:
 
       # APT repositories with packages
       aptRepos:
@@ -71,33 +72,36 @@ profiles:
           packages:
             - gh
 
-        # Azure CLI
-        - name: azure-cli
-          key_url: https://packages.microsoft.com/keys/microsoft.asc
-          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/azure-cli/ jammy main"
-          packages:
-            - azure-cli
+  # ============================================================================
+  # DESKTOP PROFILE
+  # Desktop applications extending minimal profile
+  # ============================================================================
+  desktop:
+    extends: minimal
 
-        # Helm
-        - name: helm
-          key_url: https://packages.buildkite.com/helm-linux/helm-debian/gpgkey
-          repo: "deb [signed-by=/etc/apt/trusted.gpg.d/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main"
+    install:
+      # APT repositories with packages
+      aptRepos:
+        # Google Chrome
+        - name: google-chrome
+          key_url: https://dl.google.com/linux/linux_signing_key.pub
+          repo: "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main"
           packages:
-            - helm
+            - google-chrome-stable
 
-        # HashiCorp (Terraform)
-        - name: hashicorp
-          key_url: https://apt.releases.hashicorp.com/gpg
-          repo: "deb [arch=amd64] https://apt.releases.hashicorp.com jammy main"
+        # Spotify
+        - name: spotify
+          key_url: https://download.spotify.com/debian/pubkey_5384CE82BA52C83A.asc
+          repo: "deb https://repository.spotify.com stable non-free"
           packages:
-            - terraform
+            - spotify-client
 
   # ============================================================================
   # DEV PROFILE
-  # Full development environment extending minimal profile
+  # Full development environment extending desktop profile
   # ============================================================================
   dev:
-    extends: minimal
+    extends: desktop
 
     dotfiles:
       # PowerShell profile with Starship integration
@@ -110,8 +114,7 @@ profiles:
         - build-essential
 
       # Custom scripts for dev tools
-      scripts:
-        - scripts/install-dotnet-sdks.sh
+      #scripts:
 
       # APT repositories with packages
       aptRepos:
@@ -126,12 +129,37 @@ profiles:
             - docker-buildx-plugin
             - docker-compose-plugin
 
-        # Google Chrome
-        - name: google-chrome
-          key_url: https://dl.google.com/linux/linux_signing_key.pub
-          repo: "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main"
+        # Microsoft packages (.NET, PowerShell, Azure CLI)
+        - name: microsoft-packages
+          key_url: https://packages.microsoft.com/keys/microsoft.asc
+          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-jammy-prod/ jammy main"
           packages:
-            - google-chrome-stable
+            - dotnet-sdk-8.0
+            - dotnet-sdk-9.0
+            - dotnet-sdk-10.0
+            - powershell
+            - azure-cli
+
+        # VS Code
+        - name: vscode
+          key_url: https://packages.microsoft.com/keys/microsoft.asc
+          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
+          packages:
+            - code
+
+        # Helm
+        - name: helm
+          key_url: https://packages.buildkite.com/helm-linux/helm-debian/gpgkey
+          repo: "deb [signed-by=/etc/apt/trusted.gpg.d/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main"
+          packages:
+            - helm
+
+        # HashiCorp (Terraform)
+        - name: hashicorp
+          key_url: https://apt.releases.hashicorp.com/gpg
+          repo: "deb [arch=amd64] https://apt.releases.hashicorp.com jammy main"
+          packages:
+            - terraform
 
       # Snap packages
       snaps:
