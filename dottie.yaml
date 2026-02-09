@@ -99,7 +99,7 @@ profiles:
         # Typora - Markdown editor
         - name: typora
           key_url: https://downloads.typora.io/typora.gpg
-          repo: "deb [signed-by=/etc/apt/keyrings/typora.gpg] https://downloads.typora.io/linux ./"
+          repo: "deb [signed-by=${SIGNING_FILE}] https://downloads.typora.io/linux ./"
           packages:
             - typora
 
