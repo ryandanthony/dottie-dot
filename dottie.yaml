@@ -68,7 +68,7 @@ profiles:
         # GitHub CLI
         - name: github-cli
           key_url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-          repo: "deb [arch=amd64] https://cli.github.com/packages stable main"
+          repo: "deb [arch=${MS_ARCH}] https://cli.github.com/packages stable main"
           packages:
             - gh
 
@@ -96,6 +96,13 @@ profiles:
           packages:
             - spotify-client
 
+        # Typora - Markdown editor
+        - name: typora
+          key_url: https://downloads.typora.io/typora.gpg
+          repo: "deb [signed-by=/etc/apt/keyrings/typora.gpg] https://downloads.typora.io/linux ./"
+          packages:
+            - typora
+
   # ============================================================================
   # DEV PROFILE
   # Full development environment extending desktop profile
@@ -121,7 +128,7 @@ profiles:
         # Docker
         - name: docker
           key_url: https://download.docker.com/linux/ubuntu/gpg
-          repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu jammy stable"
+          repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${VERSION_CODENAME} stable"
           packages:
             - docker-ce
             - docker-ce-cli
@@ -132,7 +139,7 @@ profiles:
         # Microsoft packages (.NET, PowerShell, Azure CLI)
         - name: microsoft-packages
           key_url: https://packages.microsoft.com/keys/microsoft.asc
-          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-jammy-prod/ jammy main"
+          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-${VERSION_CODENAME}-prod/ ${VERSION_CODENAME} main"
           packages:
             - dotnet-sdk-8.0
             - dotnet-sdk-9.0
@@ -157,7 +164,7 @@ profiles:
         # HashiCorp (Terraform)
         - name: hashicorp
           key_url: https://apt.releases.hashicorp.com/gpg
-          repo: "deb [arch=amd64] https://apt.releases.hashicorp.com jammy main"
+          repo: "deb [arch=amd64] https://apt.releases.hashicorp.com ${VERSION_CODENAME} main"
           packages:
             - terraform
 
@@ -177,10 +184,6 @@ profiles:
         
         # draw.io - Diagramming tool
         - name: drawio
-          classic: false
-        
-        # Typora - Markdown editor
-        - name: typora
           classic: false
 
   # ============================================================================
