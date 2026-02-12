@@ -88,7 +88,7 @@ profiles:
         # Google Chrome
         - name: google-chrome
           key_url: https://dl.google.com/linux/linux_signing_key.pub
-          repo: "deb [arch=amd64] https://dl.google.com/linux/chrome/deb/ stable main"
+          repo: "deb [arch=${MS_ARCH}] https://dl.google.com/linux/chrome/deb/ stable main"
           packages:
             - google-chrome-stable
 
@@ -131,7 +131,7 @@ profiles:
         # Docker
         - name: docker
           key_url: https://download.docker.com/linux/ubuntu/gpg
-          repo: "deb [arch=amd64] https://download.docker.com/linux/ubuntu ${VERSION_CODENAME} stable"
+          repo: "deb [arch=${MS_ARCH}] https://download.docker.com/linux/ubuntu ${VERSION_CODENAME} stable"
           packages:
             - docker-ce
             - docker-ce-cli
@@ -142,7 +142,7 @@ profiles:
         # Microsoft packages (.NET, PowerShell, Azure CLI)
         - name: microsoft-packages
           key_url: https://packages.microsoft.com/keys/microsoft.asc
-          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-${VERSION_CODENAME}-prod/ ${VERSION_CODENAME} main"
+          repo: "deb [arch=${MS_ARCH}] https://packages.microsoft.com/repos/microsoft-ubuntu-${VERSION_CODENAME}-prod/ ${VERSION_CODENAME} main"
           packages:
             #- dotnet-sdk-9.0
             - dotnet-sdk-10.0
@@ -153,21 +153,21 @@ profiles:
         # VS Code
         - name: vscode
           key_url: https://packages.microsoft.com/keys/microsoft.asc
-          repo: "deb [arch=amd64] https://packages.microsoft.com/repos/code stable main"
+          repo: "deb [arch=${MS_ARCH}] https://packages.microsoft.com/repos/code stable main"
           packages:
             - code
 
         # Helm
         - name: helm
           key_url: https://packages.buildkite.com/helm-linux/helm-debian/gpgkey
-          repo: "deb [signed-by=/etc/apt/trusted.gpg.d/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main"
+          repo: "deb [signed-by=${SIGNING_FILE}] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main"
           packages:
             - helm
 
         # HashiCorp (Terraform)
         - name: hashicorp
           key_url: https://apt.releases.hashicorp.com/gpg
-          repo: "deb [arch=amd64] https://apt.releases.hashicorp.com ${VERSION_CODENAME} main"
+          repo: "deb [arch=${MS_ARCH}] https://apt.releases.hashicorp.com ${VERSION_CODENAME} main"
           packages:
             - terraform
 
