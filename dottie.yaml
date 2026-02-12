@@ -39,12 +39,15 @@ profiles:
         - repo: jqlang/jq
           asset: "jq-linux-amd64"
           binary: jq
+          version: "1.8.1"
         - repo: starship/starship
           asset: "starship-x86_64-unknown-linux-gnu.tar.gz"
           binary: starship
+          version: "1.24.2"
         - repo: github/copilot-cli
           asset: "copilot-linux-x64.tar.gz"
-          binary: copilot          
+          binary: copilot
+          version: "0.0.407"
 
       # APT packages - basic CLI tools
       apt:
@@ -97,11 +100,11 @@ profiles:
             - spotify-client
 
         # Typora - Markdown editor
-        # - name: typora
-        #   key_url: https://downloads.typora.io/typora.gpg
-        #   repo: "deb [signed-by=${SIGNING_FILE}] https://downloads.typora.io/linux ./"
-        #   packages:
-        #     - typora
+        - name: typora
+          key_url: https://downloads.typora.io/typora.gpg
+          repo: "deb [signed-by=${SIGNING_FILE}] https://downloads.typora.io/linux ./"
+          packages:
+            - typora
 
   # ============================================================================
   # DEV PROFILE
