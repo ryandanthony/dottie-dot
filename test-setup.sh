@@ -62,7 +62,7 @@ echo ""
 
 echo "Step 2: Applying Dottie Configuration"
 echo "=========================================="
-dottie apply --force
+dottie apply --force -c /home/testuser/.dottie/dottie.yaml
 if [ $? -eq 0 ]; then
     echo -e "${GREEN}✓ Dottie apply successful${NC}"
     ((SUCCESS_COUNT++))

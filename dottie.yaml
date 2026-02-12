@@ -64,13 +64,13 @@ profiles:
       #scripts:
 
       # APT repositories with packages
-      aptRepos:
-        # GitHub CLI
-        - name: github-cli
-          key_url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-          repo: "deb [arch=${MS_ARCH}] https://cli.github.com/packages stable main"
-          packages:
-            - gh
+      # aptRepos:
+      #   # GitHub CLI
+      #   - name: github-cli
+      #     key_url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+      #     repo: "deb [arch=${MS_ARCH}] https://cli.github.com/packages stable main"
+      #     packages:
+      #       - gh
 
   # ============================================================================
   # DESKTOP PROFILE
@@ -97,11 +97,11 @@ profiles:
             - spotify-client
 
         # Typora - Markdown editor
-        - name: typora
-          key_url: https://downloads.typora.io/typora.gpg
-          repo: "deb [signed-by=${SIGNING_FILE}] https://downloads.typora.io/linux ./"
-          packages:
-            - typora
+        # - name: typora
+        #   key_url: https://downloads.typora.io/typora.gpg
+        #   repo: "deb [signed-by=${SIGNING_FILE}] https://downloads.typora.io/linux ./"
+        #   packages:
+        #     - typora
 
   # ============================================================================
   # DEV PROFILE
@@ -141,11 +141,11 @@ profiles:
           key_url: https://packages.microsoft.com/keys/microsoft.asc
           repo: "deb [arch=amd64] https://packages.microsoft.com/repos/microsoft-ubuntu-${VERSION_CODENAME}-prod/ ${VERSION_CODENAME} main"
           packages:
-            - dotnet-sdk-8.0
-            - dotnet-sdk-9.0
+            #- dotnet-sdk-9.0
             - dotnet-sdk-10.0
             - powershell
-            - azure-cli
+            - dotnet-sdk-8.0
+            #- azure-cli
 
         # VS Code
         - name: vscode

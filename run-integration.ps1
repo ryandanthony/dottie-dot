@@ -1,9 +1,19 @@
 #!/usr/bin/env pwsh
+param(
+    [switch]$NoCache
+)
 
 # Build and run the Docker test container for dottie configuration
 
-Write-Host "Building Docker test image..." -ForegroundColor Cyan
-docker build -t dottie-test .
+$buildArgs = @("build", "-t", "dottie-test")
+if ($NoCache) {
+    Write-Host "Building Docker test image (no cache)..." -ForegroundColor Cyan
+    $buildArgs += "--no-cache"
+} else {
+    Write-Host "Building Docker test image..." -ForegroundColor Cyan
+}
+$buildArgs += "."
+docker @buildArgs
 
 if ($LASTEXITCODE -ne 0) {
     Write-Host "Docker build failed!" -ForegroundColor Red
