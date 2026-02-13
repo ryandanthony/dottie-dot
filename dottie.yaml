@@ -83,6 +83,10 @@ profiles:
     extends: minimal
 
     install:
+      # APT packages - desktop tools
+      apt:
+        - flameshot
+
       # APT repositories with packages
       aptRepos:
         # Google Chrome
@@ -141,6 +145,21 @@ profiles:
           binary: kustomize
           version: "kustomize/v5.8.1"
 
+        # lazygit - Terminal UI for git
+        - repo: jesseduffield/lazygit
+          asset: "lazygit_${RELEASE_VERSION}_Linux_${ARCH}.tar.gz"
+          binary: lazygit
+
+        # kubectx - Fast Kubernetes context switching
+        - repo: ahmetb/kubectx
+          asset: "kubectx_v${RELEASE_VERSION}_linux_${ARCH}.tar.gz"
+          binary: kubectx
+
+        # kubens - Fast Kubernetes namespace switching
+        - repo: ahmetb/kubectx
+          asset: "kubens_v${RELEASE_VERSION}_linux_${ARCH}.tar.gz"
+          binary: kubens
+
       # Custom scripts for dev tools
       #scripts:
 
@@ -174,6 +193,7 @@ profiles:
             - powershell
             - dotnet-sdk-8.0
             - azure-cli
+            - azure-functions-core-tools-4
 
         # VS Code
         - name: vscode
