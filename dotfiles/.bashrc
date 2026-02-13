@@ -73,6 +73,17 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export DOTNET_ROOT="$HOME/.dotnet"
 export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 
+# Rust (cargo)
+if [ -d "$HOME/.cargo/bin" ]; then
+    export PATH="$HOME/.cargo/bin:$PATH"
+fi
+
+# Go
+if [ -d "/usr/local/go/bin" ]; then
+    export PATH="$PATH:/usr/local/go/bin"
+    export PATH="$PATH:$HOME/go/bin"
+fi
+
 # Editor
 export EDITOR=code
 export VISUAL=code

@@ -8,6 +8,14 @@ RUN apt-get update && apt-get install -y \
     curl \
     ca-certificates \
     sudo \
+    libgtk-3-0 \
+    libnotify4 \
+    libnss3 \
+    libxss1 \
+    libxtst6 \
+    xdg-utils \
+    libatspi2.0-0 \
+    libsecret-1-0 \
     && rm -rf /var/lib/apt/lists/*
 
 # Create a user 'testuser' with sudo privileges (similar to a laptop setup)

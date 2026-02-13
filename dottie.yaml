@@ -26,6 +26,10 @@ profiles:
       - source: dotfiles/.gitconfig
         target: ~/.gitconfig
 
+      # VS Code settings
+      - source: dotfiles/Code/User/settings.json
+        target: ~/.config/Code/User/settings.json
+
     install:
       # Fonts - JetBrains Mono (primary dev font with ligatures)
       fonts:
@@ -160,8 +164,20 @@ profiles:
           asset: "kubens_v${RELEASE_VERSION}_linux_${ARCH}.tar.gz"
           binary: kubens
 
+        # draw.io - Diagramming tool
+        - repo: jgraph/drawio-desktop
+          asset: "drawio-${MS_ARCH}-${RELEASE_VERSION}.deb"
+          type: deb
+
+        # OpenLens - Kubernetes IDE
+        - repo: MuhammedKalkan/OpenLens
+          asset: "OpenLens-${RELEASE_VERSION}.${MS_ARCH}.deb"
+          type: deb
+
       # Custom scripts for dev tools
-      #scripts:
+      scripts:
+        - scripts/install-vscode-extensions.sh
+        - scripts/install-jetbrains-toolbox.sh
 
       # APT repositories with packages
       aptRepos:
@@ -216,23 +232,18 @@ profiles:
           packages:
             - terraform
 
-      # Snap packages
-      snaps:
-        # JetBrains Rider - .NET IDE
-        - name: rider
-          classic: true
-        
-        # Visual Studio Code
-        - name: code
-          classic: true
-        
-        # DataGrip - Database IDE
-        - name: datagrip
-          classic: true
-        
-        # draw.io - Diagramming tool
-        - name: drawio
-          classic: false
+
+  # ============================================================================
+  # ALT-DEV PROFILE
+  # Alternative development with Rust and Go, extending dev profile
+  # ============================================================================
+  alt-dev:
+    extends: dev
+
+    install:
+      scripts:
+        - scripts/install-rust.sh
+        - scripts/install-go.sh
 
   # ============================================================================
   # DEFAULT PROFILE
