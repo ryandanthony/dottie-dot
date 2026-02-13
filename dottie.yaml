@@ -123,11 +123,36 @@ profiles:
       apt:
         - build-essential
 
+      # GitHub releases - dev tooling binaries installed to ~/bin
+      github:
+        # k9s - Kubernetes terminal UI
+        - repo: derailed/k9s
+          asset: "k9s_Linux_${MS_ARCH}.tar.gz"
+          binary: k9s
+
+        # yq - YAML processor
+        - repo: mikefarah/yq
+          asset: "yq_linux_${MS_ARCH}"
+          binary: yq
+
+        # kustomize - Kubernetes native config management
+        - repo: kubernetes-sigs/kustomize
+          asset: "kustomize_v5.8.1_linux_${MS_ARCH}.tar.gz"
+          binary: kustomize
+          version: "kustomize/v5.8.1"
+
       # Custom scripts for dev tools
       #scripts:
 
       # APT repositories with packages
       aptRepos:
+        # Kubernetes packages
+        - name: kubernetes
+          key_url: https://pkgs.k8s.io/core:/stable:/v1.34/deb/Release.key
+          repo: "deb [signed-by=${SIGNING_FILE}] https://pkgs.k8s.io/core:/stable:/v1.34/deb/ /"
+          packages:
+            - kubectl
+
         # Docker
         - name: docker
           key_url: https://download.docker.com/linux/ubuntu/gpg
