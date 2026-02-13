@@ -33,8 +33,6 @@ profiles:
     install:
       # Fonts - JetBrains Mono (primary dev font with ligatures)
       fonts:
-        - name: "JetBrainsMono"
-          url: "https://download.jetbrains.com/fonts/JetBrainsMono-2.304.zip"
         - name: "JetBrainsMono Nerd Font"
           url: "https://github.com/ryanoasis/nerd-fonts/releases/download/v3.4.0/JetBrainsMono.zip"
 
