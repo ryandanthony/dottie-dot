@@ -35,7 +35,6 @@
     "github.copilot.nextEditSuggestions.enabled": true,
     "chat.mcp.autostart": "onlyNew",
     "chat.agent.maxRequests": 10000,
-    "workbench.colorTheme": "GitHub Dark Dimmed",
     "redhat.telemetry.enabled": false,
     "workbench.iconTheme": "vscode-icons",
     "[dockercompose]": {
