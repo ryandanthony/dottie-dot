@@ -41,15 +41,12 @@ profiles:
         - repo: jqlang/jq
           asset: "jq-linux-amd64"
           binary: jq
-          version: "1.8.1"
         - repo: starship/starship
           asset: "starship-x86_64-unknown-linux-gnu.tar.gz"
           binary: starship
-          version: "1.24.2"
         - repo: github/copilot-cli
           asset: "copilot-linux-x64.tar.gz"
           binary: copilot
-          version: "0.0.407"
 
       # APT packages - basic CLI tools
       apt:
@@ -174,6 +171,7 @@ profiles:
 
       # Custom scripts for dev tools
       scripts:
+        - scripts/setup-github-ssh.sh
         - scripts/install-vscode-extensions.sh
         - scripts/install-jetbrains-toolbox.sh
 

@@ -6,6 +6,13 @@ My personal dotfiles and development environment setup, managed by [dottie](http
 
 This repository contains my dotfiles and system configuration for KDE Neon (Ubuntu-based Linux). It uses `dottie` to manage dotfile symlinks and software installation.
 
+
+### Quick Reference
+
+```bash
+GITHUB_EMAIL="your@email.com" dottie install -p dev
+```
+
 ## Profiles
 
 ### `minimal`
