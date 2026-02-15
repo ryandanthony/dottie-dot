@@ -61,18 +61,19 @@ profiles:
         - lsb-release
         - apt-transport-https
         - software-properties-common
+        - ttf-mscorefonts-installer
 
       # Custom scripts
       #scripts:
 
       # APT repositories with packages
-      # aptRepos:
-      #   # GitHub CLI
-      #   - name: github-cli
-      #     key_url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
-      #     repo: "deb [arch=${MS_ARCH}] https://cli.github.com/packages stable main"
-      #     packages:
-      #       - gh
+      aptRepos:
+        # GitHub CLI
+        - name: github-cli
+          key_url: https://cli.github.com/packages/githubcli-archive-keyring.gpg
+          repo: "deb [arch=${MS_ARCH}] https://cli.github.com/packages stable main"
+          packages:
+            - gh
 
   # ============================================================================
   # DESKTOP PROFILE
