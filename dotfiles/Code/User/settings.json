@@ -64,5 +64,6 @@
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "chat.viewSessions.orientation": "stacked"
+    "chat.viewSessions.orientation": "stacked",
+    "git.autofetch": true
 }

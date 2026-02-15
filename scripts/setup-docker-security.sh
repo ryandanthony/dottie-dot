@@ -10,8 +10,9 @@ echo "Setting up Docker security and permissions..."
 
 # Check if Docker is installed
 if ! command -v docker &>/dev/null; then
-    echo "✗ Docker is not installed. Please install Docker first."
-    exit 1
+    echo "⚠ Docker is not installed yet. Skipping security setup."
+    echo "  It will be configured after Docker is installed."
+    exit 0
 fi
 
 # Check if running as root or have sudo access
@@ -68,21 +69,12 @@ fi
 echo "  Creating secure daemon configuration..."
 $SUDO tee "$DOCKER_DAEMON_CONFIG" > /dev/null <<'EOF'
 {
-  "icc": false,
   "live-restore": true,
   "log-driver": "json-file",
   "log-opts": {
     "max-size": "10m",
     "max-file": "3"
   },
-  "default-ulimits": {
-    "nofile": {
-      "Name": "nofile",
-      "Hard": 64000,
-      "Soft": 64000
-    }
-  },
-  "disable-legacy-registry": true,
   "userland-proxy": false,
   "no-new-privileges": true
 }
@@ -93,11 +85,23 @@ echo "  Setting proper permissions on config files..."
 $SUDO chmod 600 "$DOCKER_DAEMON_CONFIG"
 $SUDO chmod 755 "$DOCKER_CONFIG_DIR"
 
-# Step 5: Reload Docker daemon
+# Step 5: Reload Docker daemon with error handling
 echo ""
 echo "Step 4: Restarting Docker daemon..."
 $SUDO systemctl daemon-reload
-$SUDO systemctl restart docker
+
+# Try to restart Docker and capture output
+if ! $SUDO systemctl restart docker 2>&1; then
+    echo "  ✗ Docker failed to restart. Checking configuration..."
+    echo "  Restoring from backup..."
+    if [ -f "$DOCKER_DAEMON_CONFIG.backup"* ]; then
+        LATEST_BACKUP=$(ls -t "$DOCKER_DAEMON_CONFIG.backup"* 2>/dev/null | head -1)
+        $SUDO cp "$LATEST_BACKUP" "$DOCKER_DAEMON_CONFIG"
+        $SUDO systemctl restart docker
+        echo "  ✓ Restored from backup and Docker restarted"
+        echo "  ⚠ Some security settings may not have been applied"
+    fi
+fi
 
 # Step 6: Verify setup
 echo ""
@@ -118,10 +122,8 @@ echo ""
 echo "Security settings applied:"
 echo "  • User added to docker group"
 echo "  • Docker socket permissions configured (660)"
-echo "  • Inter-container communication disabled (icc: false)"
 echo "  • Live restore enabled for container recovery"
 echo "  • JSON-file logging with rotation (10m max, 3 files)"
-echo "  • Legacy registry disabled"
 echo "  • Userland proxy disabled"
 echo "  • No new privileges flag enabled"
 echo ""

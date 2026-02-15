@@ -86,6 +86,7 @@ profiles:
       # APT packages - desktop tools
       apt:
         - flameshot
+        - kmail
 
       # APT repositories with packages
       aptRepos:
@@ -173,6 +174,7 @@ profiles:
       # Custom scripts for dev tools
       scripts:
         - scripts/setup-github-ssh.sh
+        - scripts/setup-docker-security.sh
         - scripts/install-vscode-extensions.sh
         - scripts/install-jetbrains-toolbox.sh
 
