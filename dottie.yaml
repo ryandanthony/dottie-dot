@@ -111,6 +111,13 @@ profiles:
           packages:
             - typora
 
+        # Insync - Google Drive / OneDrive sync client
+        - name: insync
+          key_url: https://apt.insync.io/insynchq.gpg
+          repo: "deb [signed-by=${SIGNING_FILE}] http://apt.insync.io/ubuntu ${VERSION_CODENAME} non-free contrib"
+          packages:
+            - insync
+
   # ============================================================================
   # DEV PROFILE
   # Full development environment extending desktop profile
