@@ -87,6 +87,7 @@ profiles:
       apt:
         - flameshot
         - kmail
+        - qalculate-gtk
 
       # APT repositories with packages
       aptRepos:
