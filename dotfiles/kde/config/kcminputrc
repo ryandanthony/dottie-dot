@@ -1,0 +1,9 @@
+[Libinput][1133][16478][Logitech M720 Triathlon]
+NaturalScroll=false
+ScrollFactor=4
+
+[Libinput][1267][10774][ELAN2097:00 04F3:2A16]
+Enabled=true
+
+[Libinput][1267][12572][DELL098F:00 04F3:311C Mouse]
+NaturalScroll=true

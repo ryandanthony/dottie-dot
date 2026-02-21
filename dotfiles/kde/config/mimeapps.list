@@ -1,0 +1,11 @@
+[Added Associations]
+text/markdown=typora.desktop;org.kde.kate.desktop;okularApplication_txt.desktop;
+x-scheme-handler/geo=google-maps-geo-handler.desktop;
+
+[Default Applications]
+text/html=google-chrome.desktop
+text/markdown=typora.desktop;
+x-scheme-handler/geo=google-maps-geo-handler.desktop;
+x-scheme-handler/http=google-chrome.desktop
+x-scheme-handler/https=google-chrome.desktop
+x-scheme-handler/lens=open-lens.desktop

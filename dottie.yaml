@@ -82,6 +82,91 @@ profiles:
   desktop:
     extends: minimal
 
+    dotfiles:
+      # KDE Plasma global settings (theme, colors, default apps)
+      - source: dotfiles/kde/config/kdeglobals
+        target: ~/.config/kdeglobals
+
+      # KWin window manager (tiling, desktops, night color, Xwayland scale)
+      - source: dotfiles/kde/config/kwinrc
+        target: ~/.config/kwinrc
+
+      # Global keyboard shortcuts
+      - source: dotfiles/kde/config/kglobalshortcutsrc
+        target: ~/.config/kglobalshortcutsrc
+
+      # Plasma desktop layout (panels, applets, widgets, wallpaper)
+      - source: dotfiles/kde/config/plasma-org.kde.plasma.desktop-appletsrc
+        target: ~/.config/plasma-org.kde.plasma.desktop-appletsrc
+
+      # Plasma shell settings (panel size, floating)
+      - source: dotfiles/kde/config/plasmashellrc
+        target: ~/.config/plasmashellrc
+
+      # Plasma general settings
+      - source: dotfiles/kde/config/plasmarc
+        target: ~/.config/plasmarc
+
+      # Display/monitor configuration
+      - source: dotfiles/kde/config/kwinoutputconfig.json
+        target: ~/.config/kwinoutputconfig.json
+
+      # Mouse/touchpad input settings
+      - source: dotfiles/kde/config/kcminputrc
+        target: ~/.config/kcminputrc
+
+      # Konsole terminal settings
+      - source: dotfiles/kde/config/konsolerc
+        target: ~/.config/konsolerc
+
+      # Dolphin file manager settings
+      - source: dotfiles/kde/config/dolphinrc
+        target: ~/.config/dolphinrc
+
+      # Kate text editor settings
+      - source: dotfiles/kde/config/katerc
+        target: ~/.config/katerc
+
+      # Session management
+      - source: dotfiles/kde/config/ksmserverrc
+        target: ~/.config/ksmserverrc
+
+      # Locale/language settings
+      - source: dotfiles/kde/config/plasma-localerc
+        target: ~/.config/plasma-localerc
+
+      # MIME type / default application associations
+      - source: dotfiles/kde/config/mimeapps.list
+        target: ~/.config/mimeapps.list
+
+      # Baloo file indexer settings (search index exclusions)
+      - source: dotfiles/kde/config/baloofilerc
+        target: ~/.config/baloofilerc
+
+      # KIO settings (file operations, delete confirmations)
+      - source: dotfiles/kde/config/kiorc
+        target: ~/.config/kiorc
+
+      # Spectacle screenshot tool settings
+      - source: dotfiles/kde/config/spectaclerc
+        target: ~/.config/spectaclerc
+
+      # GTK2 theme integration
+      - source: dotfiles/kde/config/gtkrc
+        target: ~/.config/gtkrc
+
+      # GTK3 theme integration (dark theme, cursor, icons, font)
+      - source: dotfiles/kde/config/gtk-3.0/settings.ini
+        target: ~/.config/gtk-3.0/settings.ini
+
+      # GTK4 theme integration
+      - source: dotfiles/kde/config/gtk-4.0/settings.ini
+        target: ~/.config/gtk-4.0/settings.ini
+
+      # Autostart - Insync (Google Drive / OneDrive sync)
+      - source: dotfiles/kde/config/autostart/insync.desktop
+        target: ~/.config/autostart/insync.desktop
+
     install:
       # APT packages - desktop tools
       apt:
