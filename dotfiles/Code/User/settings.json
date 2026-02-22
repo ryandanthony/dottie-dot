@@ -76,5 +76,6 @@
             "approveRequest": false,
             "approveResponse": true
         }
-    }
+    },
+    "git.enableSmartCommit": true
 }
