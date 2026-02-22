@@ -20,7 +20,7 @@ wallpaperplugin=org.kde.image
 [Containments][1][General]
 changedPositions={}
 lastResolution=5120x1440
-positions={"2133x1200":["1","19","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","1","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","2"],"5120x1440":["1","47","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","2","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","1"]}
+positions={"2133x1200":["1","19","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","1","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","2"],"5120x1440":["1","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0"]}
 sortMode=-1
 
 [Containments][1][Wallpaper][org.kde.image][General]
@@ -193,4 +193,4 @@ SlidePaths=/usr/share/wallpapers/
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6
+screenMapping=desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6

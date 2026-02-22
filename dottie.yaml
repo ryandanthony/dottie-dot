@@ -178,6 +178,13 @@ profiles:
         - kmail
         - qalculate-gtk
 
+      # GitHub releases - desktop app binaries
+      github:
+        # Joplin - Note-taking and to-do app
+        - repo: laurent22/joplin
+          asset: "Joplin-${RELEASE_VERSION}.deb"
+          type: deb
+
       # Snap packages - desktop apps
       snaps:
         - name: shortwave
