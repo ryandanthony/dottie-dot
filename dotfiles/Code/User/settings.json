@@ -71,6 +71,10 @@
             "approveRequest": false,
             "approveResponse": true
         },
-        "https://ryandanthony.github.io": true
+        "https://ryandanthony.github.io": true,
+        "https://github.com": {
+            "approveRequest": false,
+            "approveResponse": true
+        }
     }
 }
