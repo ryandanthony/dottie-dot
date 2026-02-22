@@ -18,7 +18,7 @@ tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"wi
 
 [Tiling][55febd12-d7f2-4038-bf60-6cfe74d94170][9e0905f4-c3af-4ce5-a0b9-ba03c5bf6637]
 padding=4
-tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.5,"layoutDirection":"floating","tiles":[{"height":0.25,"width":0.2568359374999999,"x":0.05,"y":0.05}]},{"height":0.5}],"width":0.3068359374999999},{"width":0.3541015625000002},{"width":0.33906249999999993}]}
+tiles={"layoutDirection":"horizontal","tiles":[{"layoutDirection":"vertical","tiles":[{"height":0.16041666666666668,"layoutDirection":"floating","tiles":[{"height":0.15000000000000002,"width":0.2568359374999999,"x":0.05,"y":0.05}]},{"height":0.8395833333333333}],"width":0.3068359374999999},{"width":0.3541015625000002},{"width":0.33906249999999993}]}
 
 [Xwayland]
 Scale=1.5

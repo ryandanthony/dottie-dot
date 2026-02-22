@@ -43,7 +43,7 @@ $env:PATH = "$HOME/bin:$HOME/.local/bin:$env:PATH"
 
 # .NET SDK
 $env:DOTNET_ROOT = "$HOME/.dotnet"
-$env:PATH = "$env:PATH:$env:DOTNET_ROOT:$env:DOTNET_ROOT/tools"
+$env:PATH = "${env:PATH}:${env:DOTNET_ROOT}:${env:DOTNET_ROOT}/tools"
 
 # Editor
 $env:EDITOR = "code"

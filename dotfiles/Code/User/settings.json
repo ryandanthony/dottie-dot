@@ -65,5 +65,12 @@
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "chat.viewSessions.orientation": "stacked",
-    "git.autofetch": true
+    "git.autofetch": true,
+    "chat.tools.urls.autoApprove": {
+        "https://github.com/ryandanthony/dottie": {
+            "approveRequest": false,
+            "approveResponse": true
+        },
+        "https://ryandanthony.github.io": true
+    }
 }

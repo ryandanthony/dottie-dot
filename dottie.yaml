@@ -243,6 +243,12 @@ profiles:
           binary: kustomize
           version: "kustomize/v5.8.1"
 
+        # uv - Python package and project manager
+        - repo: astral-sh/uv
+          asset: "uv-${ARCH}-unknown-linux-gnu.tar.gz"
+          binary: uv
+          version: "0.10.4"
+
         # lazygit - Terminal UI for git
         - repo: jesseduffield/lazygit
           asset: "lazygit_${RELEASE_VERSION}_Linux_${ARCH}.tar.gz"
@@ -274,6 +280,7 @@ profiles:
         - scripts/setup-docker-security.sh
         - scripts/install-vscode-extensions.sh
         - scripts/install-jetbrains-toolbox.sh
+        - scripts/install-specify-cli.sh
 
       # APT repositories with packages
       aptRepos:
