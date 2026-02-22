@@ -18,9 +18,13 @@ profiles:
       - source: dotfiles/.bashrc
         target: ~/.bashrc
       
-      # Starship prompt configuration
+      # Starship prompt configuration (PowerShell - blue scheme)
       - source: dotfiles/starship.toml
         target: ~/.config/starship.toml
+
+      # Starship prompt configuration (Bash - green scheme)
+      - source: dotfiles/starship-bash.toml
+        target: ~/.config/starship-bash.toml
 
       # Git configuration
       - source: dotfiles/.gitconfig

@@ -119,6 +119,8 @@ if command -v gh &> /dev/null; then
 fi
 
 # Initialize Starship prompt (must be at the end)
+# Use green color scheme to distinguish bash from PowerShell (blue)
+export STARSHIP_CONFIG="$HOME/.config/starship-bash.toml"
 if command -v starship &> /dev/null; then
     eval "$(starship init bash)"
 fi

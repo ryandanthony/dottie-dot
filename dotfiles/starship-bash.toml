@@ -1,6 +1,6 @@
-# Starship Configuration for PowerShell - Managed by dottie
+# Starship Configuration for Bash - Managed by dottie
 # https://starship.rs/config/
-# Style: Powerline with blue color scheme (bash uses green via starship-bash.toml)
+# Style: Powerline with green color scheme (to distinguish from PowerShell blue)
 
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
@@ -8,49 +8,49 @@
 # Timeout for commands executed by starship (in milliseconds)
 command_timeout = 1000
 
-# Powerline format with blue color scheme
+# Powerline format with green color scheme
 format = """
-[](fg:#1E3A5F)\
+[](fg:#1B4332)\
 $os\
 $username\
-[](bg:#2E5984 fg:#1E3A5F)\
+[](bg:#2D6A4F fg:#1B4332)\
 $directory\
-[](fg:#2E5984 bg:#3E7AB0)\
+[](fg:#2D6A4F bg:#40916C)\
 $git_branch\
 $git_status\
-[](fg:#3E7AB0 bg:#5BA0D0)\
+[](fg:#40916C bg:#52B788)\
 $dotnet\
 $docker_context\
 $azure\
 $kubernetes\
 $terraform\
-[](fg:#5BA0D0 bg:#7FC4E8)\
+[](fg:#52B788 bg:#74C69D)\
 $time\
-[ ](fg:#7FC4E8)\
+[ ](fg:#74C69D)\
 """
 
 # Disable the blank line at the start of the prompt
 add_newline = false
 
 [os]
-style = "bg:#1E3A5F fg:#FFFFFF"
+style = "bg:#1B4332 fg:#FFFFFF"
 disabled = true
 
 [username]
 show_always = true
-style_user = "bg:#1E3A5F fg:#FFFFFF"
-style_root = "bg:#1E3A5F fg:#FF6B6B"
+style_user = "bg:#1B4332 fg:#FFFFFF"
+style_root = "bg:#1B4332 fg:#FF6B6B"
 format = '[ $user ]($style)'
 disabled = false
 
 [hostname]
 ssh_only = true
-style = "bg:#1E3A5F fg:#FFFFFF"
+style = "bg:#1B4332 fg:#FFFFFF"
 format = '[@$hostname ]($style)'
 disabled = false
 
 [directory]
-style = "bg:#2E5984 fg:#FFFFFF"
+style = "bg:#2D6A4F fg:#FFFFFF"
 format = "[ $path ]($style)"
 truncation_length = 4
 truncation_symbol = "…/"
@@ -59,11 +59,11 @@ read_only = " 🔒"
 
 [git_branch]
 symbol = " "
-style = "bg:#3E7AB0 fg:#FFFFFF"
+style = "bg:#40916C fg:#FFFFFF"
 format = '[$symbol$branch ]($style)'
 
 [git_status]
-style = "bg:#3E7AB0 fg:#FFD93D"
+style = "bg:#40916C fg:#FFD93D"
 format = '[$all_status$ahead_behind]($style)'
 conflicted = '⚑'
 ahead = '⇡'
@@ -79,13 +79,13 @@ up_to_date = ''
 
 [dotnet]
 symbol = " "
-style = "bg:#5BA0D0 fg:#FFFFFF"
+style = "bg:#52B788 fg:#FFFFFF"
 format = '[$symbol($version) ]($style)'
 heuristic = true
 
 [docker_context]
 symbol = " "
-style = "bg:#5BA0D0 fg:#FFFFFF"
+style = "bg:#52B788 fg:#FFFFFF"
 format = '[$symbol$context ]($style)'
 only_with_files = true
 detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
@@ -93,24 +93,24 @@ detect_files = ['docker-compose.yml', 'docker-compose.yaml', 'Dockerfile']
 [azure]
 disabled = false
 symbol = "󰠅 "
-style = "bg:#5BA0D0 fg:#FFFFFF"
+style = "bg:#52B788 fg:#FFFFFF"
 format = '[$symbol($subscription) ]($style)'
 
 [kubernetes]
 symbol = "󱃾 "
-style = "bg:#5BA0D0 fg:#FFFFFF"
+style = "bg:#52B788 fg:#FFFFFF"
 format = '[$symbol$context(\($namespace\)) ]($style)'
 disabled = false
 
 [terraform]
 symbol = "󱁢 "
-style = "bg:#5BA0D0 fg:#FFFFFF"
+style = "bg:#52B788 fg:#FFFFFF"
 format = '[$symbol$workspace ]($style)'
 
 [time]
 disabled = false
 time_format = "%H:%M"
-style = "bg:#7FC4E8 fg:#1E3A5F"
+style = "bg:#74C69D fg:#1B4332"
 format = '[ $time ]($style)'
 
 [cmd_duration]
