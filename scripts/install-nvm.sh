@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 # Install nvm (Node Version Manager)
-set -euo pipefail
+set -uo pipefail
 
 NVM_DIR="${NVM_DIR:-$HOME/.nvm}"
 
 if [ -d "$NVM_DIR" ] && [ -s "$NVM_DIR/nvm.sh" ]; then
     # shellcheck source=/dev/null
-    source "$NVM_DIR/nvm.sh"
+    source "$NVM_DIR/nvm.sh" || true
     echo "✓ nvm already installed ($(nvm --version))"
     exit 0
 fi
@@ -19,7 +19,7 @@ curl -fsSL https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bas
 # Source nvm for current session
 export NVM_DIR="$HOME/.nvm"
 # shellcheck source=/dev/null
-[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/nvm.sh" ] && source "$NVM_DIR/nvm.sh" || true
 
 echo "✓ nvm installed: $(nvm --version)"
 
