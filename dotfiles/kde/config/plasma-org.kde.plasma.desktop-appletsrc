@@ -18,9 +18,9 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][1][General]
-changedPositions={}
+changedPositions={"desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop":["5120x1440","10","42"],"desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop":["5120x1440","10","41"],"desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop":["5120x1440","10","39"],"desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop":["5120x1440","10","40"]}
 lastResolution=5120x1440
-positions={"2133x1200":["1","19","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","1","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","2"],"5120x1440":["1","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0"]}
+positions={"2133x1200":["1","19","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","1","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","2"],"5120x1440":["11","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","10","40","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","10","41","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","10","42","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","10","39"]}
 sortMode=-1
 
 [Containments][1][Wallpaper][org.kde.image][General]

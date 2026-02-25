@@ -260,6 +260,12 @@ profiles:
           binary: uv
           version: "0.10.4"
 
+        # uvx - Python tool runner (from uv)
+        - repo: astral-sh/uv
+          asset: "uv-${ARCH}-unknown-linux-gnu.tar.gz"
+          binary: uvx
+          version: "0.10.4"
+
         # lazygit - Terminal UI for git
         - repo: jesseduffield/lazygit
           asset: "lazygit_${RELEASE_VERSION}_Linux_${ARCH}.tar.gz"
