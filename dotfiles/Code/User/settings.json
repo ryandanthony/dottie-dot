@@ -72,10 +72,14 @@
             "approveResponse": true
         },
         "https://ryandanthony.github.io": true,
-        "https://github.com": {
-            "approveRequest": false,
-            "approveResponse": true
-        }
+        "https://github.com": true,
+        "https://wolverine.netlify.app": true,
+        "https://openfga.dev": true,
+        "https://github.com/openfga": true,
+        "https://natsbyexample.com": true,
+        "https://docs.nats.io": true,
+        "https://*.nats.io": true,
+        "https://*.githubusercontent.com": true
     },
     "git.enableSmartCommit": true
 }

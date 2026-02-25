@@ -118,6 +118,11 @@ if command -v gh &> /dev/null; then
     eval "$(gh completion -s bash)"
 fi
 
+# nvm (Node Version Manager)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
 # Initialize Starship prompt (must be at the end)
 # Use green color scheme to distinguish bash from PowerShell (blue)
 export STARSHIP_CONFIG="$HOME/.config/starship-bash.toml"

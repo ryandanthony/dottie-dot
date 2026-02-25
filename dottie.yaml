@@ -292,6 +292,7 @@ profiles:
         - scripts/install-vscode-extensions.sh
         - scripts/install-jetbrains-toolbox.sh
         - scripts/install-specify-cli.sh
+        - scripts/install-nvm.sh
 
       # APT repositories with packages
       aptRepos:
