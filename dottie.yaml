@@ -187,8 +187,9 @@ profiles:
 
         # PlasmaZones - KDE virtual desktop zone manager (like FancyZones)
         - repo: fuddlesworth/PlasmaZones
-          asset: "plasmazones_${RELEASE_VERSION}_amd64.deb"
+          asset: "plasmazones_${RELEASE_VERSION}-1_amd64.deb"
           type: deb
+          version: "1.11.8"
 
       # Snap packages - desktop apps
       snaps:
