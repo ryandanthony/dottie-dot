@@ -64,7 +64,6 @@
     "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
-    "chat.viewSessions.orientation": "stacked",
     "git.autofetch": true,
     "chat.tools.urls.autoApprove": {
         "https://github.com/ryandanthony/dottie": {
@@ -79,7 +78,14 @@
         "https://natsbyexample.com": true,
         "https://docs.nats.io": true,
         "https://*.nats.io": true,
-        "https://*.githubusercontent.com": true
+        "https://*.githubusercontent.com": true,
+        "https://github.com/github/spec-kit": true,
+        "https://github.com/github": true,
+        "https://github.github.com/spec-kit": true,
+        "https://github.github.com": true,
+        "https://*.github.com": true,
+        "https://speckit.org": true
     },
-    "git.enableSmartCommit": true
+    "git.enableSmartCommit": true,
+    "chat.viewSessions.orientation": "stacked"
 }

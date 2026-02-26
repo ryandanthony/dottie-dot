@@ -18,9 +18,9 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][1][General]
-changedPositions={"desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop":["5120x1440","10","42"],"desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop":["5120x1440","10","41"],"desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop":["5120x1440","10","39"],"desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop":["5120x1440","10","40"]}
-lastResolution=5120x1440
-positions={"2133x1200":["1","19","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","1","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","3","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","2"],"5120x1440":["11","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","10","40","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","10","41","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","10","42","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","10","39"]}
+changedPositions={"desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop":["5120x1440,,2133x1200","11","3"],"desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop":["5120x1440,,2133x1200","11","2"],"desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop":["5120x1440,,2133x1200","11","0"],"desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop":["5120x1440,,2133x1200","11","1"]}
+lastResolution=2133x1200
+positions={"2133x1200":["1","19","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","9","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","9","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","9","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","9","0"],"5120x1440":["12","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","11","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","11","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","11","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","11","0"]}
 sortMode=-1
 
 [Containments][1][Wallpaper][org.kde.image][General]

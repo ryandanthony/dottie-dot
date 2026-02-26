@@ -185,6 +185,11 @@ profiles:
           asset: "Joplin-${RELEASE_VERSION}.deb"
           type: deb
 
+        # PlasmaZones - KDE virtual desktop zone manager (like FancyZones)
+        - repo: fuddlesworth/PlasmaZones
+          asset: "plasmazones_${RELEASE_VERSION}_amd64.deb"
+          type: deb
+
       # Snap packages - desktop apps
       snaps:
         - name: shortwave
