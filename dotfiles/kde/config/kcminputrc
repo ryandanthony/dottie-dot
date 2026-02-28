@@ -1,6 +1,6 @@
 [Libinput][1133][16478][Logitech M720 Triathlon]
 NaturalScroll=false
-ScrollFactor=4
+ScrollFactor=2
 
 [Libinput][1267][10774][ELAN2097:00 04F3:2A16]
 Enabled=true

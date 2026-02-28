@@ -10,8 +10,8 @@ x-scheme-handler/http=google-chrome.desktop
 x-scheme-handler/https=google-chrome.desktop
 x-scheme-handler/lens=open-lens.desktop
 x-scheme-handler/vscode=code.desktop
-
-# VS Code - source code and config files
+application/x-ms-vs-sln=jetbrains-rider-ad25cc7c-56c1-47c6-9dcc-5897ac20c1cc.desktop
+application/x-ms-vs-slnx=jetbrains-rider-ad25cc7c-56c1-47c6-9dcc-5897ac20c1cc.desktop
 text/plain=code.desktop
 text/x-csrc=code.desktop
 text/x-chdr=code.desktop
@@ -57,3 +57,5 @@ text/x-ini=code.desktop
 application/x-desktop=code.desktop
 application/x-bicep=code.desktop
 application/x-terraform=code.desktop
+x-scheme-handler/jetbrains=jetbrainsd.desktop
+x-scheme-handler/jetbrains-gateway=jetbrains-gateway.desktop

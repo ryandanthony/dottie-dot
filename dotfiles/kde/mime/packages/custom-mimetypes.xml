@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+
+  <!-- Visual Studio Solution XML format (.slnx) -->
+  <mime-type type="application/x-ms-vs-slnx">
+    <comment>Visual Studio Solution XML</comment>
+    <glob pattern="*.slnx"/>
+    <sub-class-of type="application/xml"/>
+  </mime-type>
+
+  <!-- Visual Studio Solution format (.sln) -->
+  <mime-type type="application/x-ms-vs-sln">
+    <comment>Visual Studio Solution</comment>
+    <glob pattern="*.sln"/>
+  </mime-type>
+
+</mime-info>

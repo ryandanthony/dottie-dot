@@ -66,6 +66,7 @@ profiles:
         - apt-transport-https
         - software-properties-common
         - ttf-mscorefonts-installer
+        - libfuse2
 
       # Custom scripts
       #scripts:
@@ -80,7 +81,7 @@ profiles:
             - gh
 
   # ============================================================================
-  # DESKTOP PROFILE
+  # s PROFILE
   # Desktop applications extending minimal profile
   # ============================================================================
   desktop:
@@ -171,12 +172,21 @@ profiles:
       - source: dotfiles/kde/config/autostart/insync.desktop
         target: ~/.config/autostart/insync.desktop
 
+      # Custom MIME types (.sln, .slnx for Rider)
+      - source: dotfiles/kde/mime/packages/custom-mimetypes.xml
+        target: ~/.local/share/mime/packages/custom-mimetypes.xml
+        postLink: "update-mime-database ~/.local/share/mime"
+
     install:
       # APT packages - desktop tools
       apt:
         - flameshot
         - kmail
         - qalculate-gtk
+        - kwin-common
+        - liblayershellqtinterface6
+        - libqt6shadertools6
+        - plasma-activities
 
       # GitHub releases - desktop app binaries
       github:
@@ -189,7 +199,6 @@ profiles:
         - repo: fuddlesworth/PlasmaZones
           asset: "plasmazones_${RELEASE_VERSION}-1_amd64.deb"
           type: deb
-          version: "1.11.8"
 
       # Snap packages - desktop apps
       snaps:
@@ -271,6 +280,11 @@ profiles:
           asset: "uv-${ARCH}-unknown-linux-gnu.tar.gz"
           binary: uvx
           version: "0.10.4"
+
+        # just - Command runner (like make but better)
+        - repo: casey/just
+          asset: "just-${RELEASE_VERSION}-${ARCH}-unknown-linux-musl.tar.gz"
+          binary: just
 
         # lazygit - Terminal UI for git
         - repo: jesseduffield/lazygit
