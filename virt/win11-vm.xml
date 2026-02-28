@@ -1,0 +1,141 @@
+<domain type='kvm'>
+  <name>win11-nvme</name>
+  <metadata>
+    <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
+      <libosinfo:os id="http://microsoft.com/win/11"/>
+    </libosinfo:libosinfo>
+  </metadata>
+  <memory unit='GiB'>16</memory>
+  <currentMemory unit='GiB'>16</currentMemory>
+  <vcpu placement='static'>8</vcpu>
+  <os firmware='efi'>
+    <type arch='x86_64' machine='q35'>hvm</type>
+    <firmware>
+      <feature enabled='yes' name='enrolled-keys'/>
+      <feature enabled='yes' name='secure-boot'/>
+    </firmware>
+    <loader readonly='yes' secure='yes' type='pflash'>/usr/share/OVMF/OVMF_CODE_4M.ms.fd</loader>
+    <nvram template='/usr/share/OVMF/OVMF_VARS_4M.ms.fd'>/var/lib/libvirt/qemu/nvram/win11-nvme_VARS.fd</nvram>
+    <boot dev='hd'/>
+  </os>
+  <features>
+    <acpi/>
+    <apic/>
+    <hyperv mode='custom'>
+      <relaxed state='on'/>
+      <vapic state='on'/>
+      <spinlocks state='on' retries='8191'/>
+      <vpindex state='on'/>
+      <runtime state='on'/>
+      <synic state='on'/>
+      <stimer state='on'/>
+      <frequencies state='on'/>
+      <tlbflush state='on'/>
+    </hyperv>
+    <smm state='on'/>
+    <vmport state='off'/>
+  </features>
+  <cpu mode='host-passthrough' check='none' migratable='on'>
+    <topology sockets='1' dies='1' cores='8' threads='1'/>
+  </cpu>
+  <clock offset='localtime'>
+    <timer name='rtc' tickpolicy='catchup'/>
+    <timer name='pit' tickpolicy='delay'/>
+    <timer name='hpet' present='no'/>
+    <timer name='hypervclock' present='yes'/>
+  </clock>
+  <on_poweroff>destroy</on_poweroff>
+  <on_reboot>restart</on_reboot>
+  <on_crash>destroy</on_crash>
+  <pm>
+    <suspend-to-mem enabled='no'/>
+    <suspend-to-disk enabled='no'/>
+  </pm>
+  <devices>
+    <emulator>/usr/bin/qemu-system-x86_64</emulator>
+
+    <controller type='pci' model='pcie-root'/>
+    <controller type='usb' model='qemu-xhci'/>
+
+    <!--
+      Primary Windows 11 disk — NVMe passthrough of /dev/nvme1n1
+      Contains Windows OS, MSR, and recovery partitions (no ESP).
+      Exposed as SATA so the bare-metal Windows drivers can boot without
+      VirtIO guest drivers. Switch to bus='virtio' after installing the
+      VirtIO drivers inside the guest for better performance.
+    -->
+    <disk type='block' device='disk'>
+      <driver name='qemu' type='raw'/>
+      <source dev='/dev/nvme1n1'/>
+      <target dev='sda' bus='sata'/>
+    </disk>
+
+    <!--
+      Shared EFI System Partition — /dev/nvme0n1p1 (537 MB FAT32)
+      This is the host's ESP that also holds the Windows Boot Manager.
+      Exposed as SATA so UEFI firmware can discover the EFI boot entries.
+      NOTE: Shared with the host. Windows only writes to its own
+      EFI/Microsoft/ directory and won't touch GRUB/Linux entries.
+    -->
+    <disk type='block' device='disk'>
+      <driver name='qemu' type='raw'/>
+      <source dev='/dev/nvme0n1p1'/>
+      <target dev='sdb' bus='sata'/>
+    </disk>
+
+    <!-- Windows 11 ISO — for reinstall/repair (optional, comment out when not needed) -->
+    <disk type='file' device='cdrom'>
+      <driver name='qemu' type='raw'/>
+      <source file='/var/lib/libvirt/images/Win11.iso'/>
+      <target dev='sdc' bus='sata'/>
+      <readonly/>
+    </disk>
+
+    <!--
+      VirtIO drivers ISO — install these inside the guest then switch
+      the primary disk to bus='virtio' for better I/O performance.
+      Download from: https://fedorapeople.org/groups/virt/virtio-win/direct-downloads/stable-virtio/virtio-win.iso
+    -->
+    <disk type='file' device='cdrom'>
+      <driver name='qemu' type='raw'/>
+      <source file='/var/lib/libvirt/images/virtio-win.iso'/>
+      <target dev='sdd' bus='sata'/>
+      <readonly/>
+    </disk>
+
+    <interface type='network'>
+      <source network='default'/>
+      <model type='virtio'/>
+    </interface>
+
+    <channel type='spicevmc'>
+      <target type='virtio' name='com.redhat.spice.0'/>
+    </channel>
+
+    <input type='tablet' bus='usb'/>
+    <input type='keyboard' bus='usb'/>
+
+    <graphics type='spice' autoport='yes'>
+      <listen type='address'/>
+      <image compression='off'/>
+    </graphics>
+
+    <sound model='ich9'>
+      <codec type='micro'/>
+    </sound>
+
+    <video>
+      <model type='qxl' ram='65536' vram='65536' vgamem='16384' heads='1' primary='yes'/>
+    </video>
+
+    <redirdev bus='usb' type='spicevmc'/>
+    <redirdev bus='usb' type='spicevmc'/>
+
+    <!-- TPM 2.0 — required for Windows 11 -->
+    <tpm model='tpm-crb'>
+      <backend type='emulator' version='2.0'/>
+    </tpm>
+
+    <memballoon model='virtio'/>
+  </devices>
+</domain>

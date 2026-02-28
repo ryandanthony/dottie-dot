@@ -183,10 +183,22 @@ profiles:
         - flameshot
         - kmail
         - qalculate-gtk
+        - qemu-kvm
+        - libvirt-daemon-system
+        - libvirt-clients
+        - bridge-utils
+        - virt-manager
+        - ovmf
+        - swtpm
+        - swtpm-tools
         - kwin-common
         - liblayershellqtinterface6
         - libqt6shadertools6
         - plasma-activities
+
+      # Custom scripts for desktop setup
+      scripts:
+        - scripts/setup-libvirt.sh
 
       # GitHub releases - desktop app binaries
       github:
@@ -345,11 +357,11 @@ profiles:
           key_url: https://packages.microsoft.com/keys/microsoft.asc
           repo: "deb [arch=${MS_ARCH}] https://packages.microsoft.com/repos/microsoft-ubuntu-${VERSION_CODENAME}-prod/ ${VERSION_CODENAME} main"
           packages:
-            - dotnet-sdk-9.0
+            #- dotnet-sdk-9.0
             - dotnet-sdk-10.0
             - powershell
             - dotnet-sdk-8.0
-            - azure-cli
+            #- azure-cli
             - azure-functions-core-tools-4
 
         # VS Code
