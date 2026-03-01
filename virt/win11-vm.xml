@@ -16,6 +16,7 @@
     </firmware>
     <loader readonly='yes' secure='yes' type='pflash'>/usr/share/OVMF/OVMF_CODE_4M.ms.fd</loader>
     <nvram template='/usr/share/OVMF/OVMF_VARS_4M.ms.fd'>/var/lib/libvirt/qemu/nvram/win11-nvme_VARS.fd</nvram>
+    <boot dev='cdrom'/>
     <boot dev='hd'/>
   </os>
   <features>
@@ -58,7 +59,19 @@
     <controller type='usb' model='qemu-xhci'/>
 
     <!--
-      Primary Windows 11 disk — NVMe passthrough of /dev/nvme1n1
+      Virtual EFI System Partition — standalone FAT32 GPT image
+      Contains only the Windows Boot Manager (EFI/Microsoft/).
+      Isolated from the host ESP so neither OS can corrupt the other.
+      Regenerate with: manage-win11-vm.sh rebuild-esp
+    -->
+    <disk type='file' device='disk'>
+      <driver name='qemu' type='raw'/>
+      <source file='/var/lib/libvirt/images/win11-esp.img'/>
+      <target dev='sda' bus='sata'/>
+    </disk>
+
+    <!--
+      Primary Windows 11 disk — /dev/nvme0n1 (whole NVMe drive)
       Contains Windows OS, MSR, and recovery partitions (no ESP).
       Exposed as SATA so the bare-metal Windows drivers can boot without
       VirtIO guest drivers. Switch to bus='virtio' after installing the
@@ -66,24 +79,13 @@
     -->
     <disk type='block' device='disk'>
       <driver name='qemu' type='raw'/>
-      <source dev='/dev/nvme1n1'/>
-      <target dev='sda' bus='sata'/>
-    </disk>
-
-    <!--
-      Shared EFI System Partition — /dev/nvme0n1p1 (537 MB FAT32)
-      This is the host's ESP that also holds the Windows Boot Manager.
-      Exposed as SATA so UEFI firmware can discover the EFI boot entries.
-      NOTE: Shared with the host. Windows only writes to its own
-      EFI/Microsoft/ directory and won't touch GRUB/Linux entries.
-    -->
-    <disk type='block' device='disk'>
-      <driver name='qemu' type='raw'/>
-      <source dev='/dev/nvme0n1p1'/>
+      <source dev='/dev/nvme0n1'/>
       <target dev='sdb' bus='sata'/>
     </disk>
 
-    <!-- Windows 11 ISO — for reinstall/repair (optional, comment out when not needed) -->
+
+
+    <!-- Windows 11 ISO — for reinstall/repair (comment out when not needed) -->
     <disk type='file' device='cdrom'>
       <driver name='qemu' type='raw'/>
       <source file='/var/lib/libvirt/images/Win11.iso'/>

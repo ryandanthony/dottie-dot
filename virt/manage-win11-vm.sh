@@ -5,16 +5,17 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 VM_NAME="win11-nvme"
 VM_XML="./win11-vm.xml"
-NVME_DEV="/dev/nvme1n1"
-ESP_DEV="/dev/nvme0n1p1"
+NVME_DEV="/dev/nvme0n1"
+ESP_IMG="/var/lib/libvirt/images/win11-esp.img"
 
 usage() {
-    echo "Usage: $(basename "$0") {define|dump|status}"
+    echo "Usage: $(basename "$0") {define|dump|status|rebuild-esp}"
     echo ""
     echo "Commands:"
-    echo "  define   Define (or redefine) the $VM_NAME VM from win11-vm.xml"
-    echo "  dump     Dump the current live XML for the $VM_NAME VM"
-    echo "  status   Show VM status"
+    echo "  define       Define (or redefine) the $VM_NAME VM from win11-vm.xml"
+    echo "  dump         Dump the current live XML for the $VM_NAME VM"
+    echo "  status       Show VM status"
+    echo "  rebuild-esp  Rebuild the virtual ESP image from the host's EFI partition"
     exit 1
 }
 
@@ -43,9 +44,10 @@ cmd_define() {
         exit 1
     fi
 
-    # Verify ESP partition exists
-    if [ ! -b "$ESP_DEV" ]; then
-        echo "✗ ESP partition $ESP_DEV not found"
+    # Verify virtual ESP image exists
+    if [ ! -f "$ESP_IMG" ]; then
+        echo "✗ Virtual ESP image $ESP_IMG not found"
+        echo "  Create it with: $(basename "$0") rebuild-esp"
         exit 1
     fi
 
@@ -56,14 +58,13 @@ cmd_define() {
         echo "  ✓ swtpm installed"
     fi
 
-    # Ensure libvirt-qemu can access the block devices
+    # Ensure libvirt-qemu can access the block device and ESP image
     echo "Checking device permissions..."
-    for dev in "$NVME_DEV" "$ESP_DEV"; do
-        if ! sudo -u libvirt-qemu test -r "$dev" 2>/dev/null; then
-            echo "  Setting read access on $dev for libvirt-qemu..."
-            # Add an apparmor/qemu security override if needed
-        fi
-    done
+    if ! sudo -u libvirt-qemu test -r "$NVME_DEV" 2>/dev/null; then
+        echo "  Setting read access on $NVME_DEV for libvirt-qemu..."
+        # Add an apparmor/qemu security override if needed
+    fi
+    sudo chown libvirt-qemu:kvm "$ESP_IMG" 2>/dev/null || true
 
     # Define or redefine the VM
     if virsh list --all --name | grep -qx "$VM_NAME"; then
@@ -77,8 +78,8 @@ cmd_define() {
     echo "  ✓ $VM_NAME VM defined"
     echo ""
     echo "Disk layout:"
-    echo "  Primary (Windows):  $NVME_DEV → sda (SATA)"
-    echo "  ESP (read-only):    $ESP_DEV → sdb (SATA)"
+    echo "  ESP (virtual):      $ESP_IMG → sda (SATA)"
+    echo "  Primary (Windows):  $NVME_DEV → sdb (SATA)"
     echo ""
     echo "Next steps:"
     echo "  1. Place your Windows 11 ISO at /var/lib/libvirt/images/Win11.iso"
@@ -117,14 +118,65 @@ cmd_status() {
     virsh dominfo "$VM_NAME"
 }
 
+cmd_rebuild_esp() {
+    local HOST_ESP="/boot/efi"
+    local TMP_IMG="/tmp/win11-esp.img"
+    local TMP_MNT="/tmp/virt-esp-mnt"
+
+    # Verify host ESP is mounted
+    if ! mountpoint -q "$HOST_ESP"; then
+        echo "✗ Host ESP not mounted at $HOST_ESP"
+        exit 1
+    fi
+
+    if [ ! -f "$HOST_ESP/EFI/Microsoft/Boot/bootmgfw.efi" ]; then
+        echo "✗ Windows Boot Manager not found at $HOST_ESP/EFI/Microsoft/Boot/bootmgfw.efi"
+        exit 1
+    fi
+
+    echo "Building virtual ESP image..."
+
+    # Create 256M raw image with GPT + EFI System Partition
+    truncate -s 256M "$TMP_IMG"
+    sgdisk --clear \
+           --new=1:2048:+250M \
+           --typecode=1:EF00 \
+           --change-name=1:"EFI System" \
+           "$TMP_IMG" >/dev/null
+
+    # Attach, format, and populate
+    LOOP=$(sudo losetup --find --show --partscan "$TMP_IMG")
+    trap 'sudo umount "$TMP_MNT" 2>/dev/null; sudo losetup -d "$LOOP" 2>/dev/null; rm -f "$TMP_IMG"' EXIT
+
+    sudo mkfs.fat -F 32 -n "ESP" "${LOOP}p1" >/dev/null
+    sudo mkdir -p "$TMP_MNT"
+    sudo mount "${LOOP}p1" "$TMP_MNT"
+
+    sudo mkdir -p "$TMP_MNT/EFI/BOOT" "$TMP_MNT/EFI/Microsoft"
+    sudo cp -a "$HOST_ESP/EFI/Microsoft/"* "$TMP_MNT/EFI/Microsoft/"
+    sudo cp "$HOST_ESP/EFI/BOOT/BOOTX64.EFI" "$TMP_MNT/EFI/BOOT/"
+
+    sudo umount "$TMP_MNT"
+    sudo losetup -d "$LOOP"
+    trap - EXIT
+
+    # Move into place
+    sudo mv "$TMP_IMG" "$ESP_IMG"
+    sudo chown libvirt-qemu:kvm "$ESP_IMG"
+
+    echo "  ✓ Virtual ESP image created at $ESP_IMG"
+    echo "    Contains: EFI/BOOT/BOOTX64.EFI, EFI/Microsoft/Boot/*"
+}
+
 # --- Main ---
 if [ $# -lt 1 ]; then
     usage
 fi
 
 case "$1" in
-    define) cmd_define ;;
-    dump)   cmd_dump ;;
-    status) cmd_status ;;
-    *)      usage ;;
+    define)      cmd_define ;;
+    dump)        cmd_dump ;;
+    status)      cmd_status ;;
+    rebuild-esp) cmd_rebuild_esp ;;
+    *)           usage ;;
 esac
