@@ -310,7 +310,3 @@ swap_window_left=Meta+Ctrl+Alt+Left,Meta+Ctrl+Alt+Left,Swap Window Left
 swap_window_right=Meta+Ctrl+Alt+Right,Meta+Ctrl+Alt+Right,Swap Window Right
 swap_window_up=Meta+Ctrl+Alt+Up,Meta+Ctrl+Alt+Up,Swap Window Up
 toggle_window_float=Meta+F,Meta+F,Toggle Window Float
-
-[services][org.kde.spectacle.desktop]
-CurrentMonitorScreenShot=
-OpenWithoutScreenshot=

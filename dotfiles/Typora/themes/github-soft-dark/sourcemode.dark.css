@@ -1,0 +1,42 @@
+@charset "UTF-8";
+/**
+ * Source mode styling for GitHub Soft Dark
+ * Colors based on GitHub dark dimmed syntax theme
+ */
+
+/** markdown source **/
+.cm-s-typora-default .cm-header,
+.cm-s-typora-default .cm-property {
+    color: #dcbdfb;
+}
+
+.CodeMirror.cm-s-typora-default div.CodeMirror-cursor {
+    border-left: 3px solid #539bf5;
+}
+
+.cm-s-typora-default .cm-comment {
+    color: #768390;
+}
+
+.cm-s-typora-default .cm-string {
+    color: #96d0ff;
+}
+
+.cm-s-typora-default .cm-atom,
+.cm-s-typora-default .cm-number {
+    color: #6cb6ff;
+    font-style: italic;
+}
+
+.cm-s-typora-default .cm-link {
+    color: #539bf5;
+}
+
+.cm-s-typora-default .CodeMirror-activeline-background {
+    background: rgba(45, 51, 59, 0.72);
+}
+
+.cm-s-typora-default .cm-comment,
+.cm-s-typora-default .cm-code {
+    color: #768390;
+}

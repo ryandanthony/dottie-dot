@@ -7,7 +7,11 @@
   </metadata>
   <memory unit='GiB'>16</memory>
   <currentMemory unit='GiB'>16</currentMemory>
+  <memoryBacking>
+    <hugepages/>
+  </memoryBacking>
   <vcpu placement='static'>8</vcpu>
+  <iothreads>2</iothreads>
   <os firmware='efi'>
     <type arch='x86_64' machine='q35'>hvm</type>
     <firmware>
@@ -32,12 +36,17 @@
       <stimer state='on'/>
       <frequencies state='on'/>
       <tlbflush state='on'/>
+      <ipi state='on'/>
+      <reset state='on'/>
+      <reenlightenment state='on'/>
     </hyperv>
     <smm state='on'/>
     <vmport state='off'/>
   </features>
-  <cpu mode='host-passthrough' check='none' migratable='on'>
+  <cpu mode='host-passthrough' check='none' migratable='off'>
     <topology sockets='1' dies='1' cores='8' threads='1'/>
+    <cache mode='passthrough'/>
+    <feature policy='require' name='topoext'/>
   </cpu>
   <clock offset='localtime'>
     <timer name='rtc' tickpolicy='catchup'/>
@@ -61,7 +70,7 @@
     <!--
       Virtual EFI System Partition — standalone FAT32 GPT image
       Contains only the Windows Boot Manager (EFI/Microsoft/).
-      Isolated from the host ESP so neither OS can corrupt the other.
+      Kept on SATA so UEFI firmware can find it without VirtIO drivers.
       Regenerate with: manage-win11-vm.sh rebuild-esp
     -->
     <disk type='file' device='disk'>
@@ -73,14 +82,15 @@
     <!--
       Primary Windows 11 disk — /dev/nvme0n1 (whole NVMe drive)
       Contains Windows OS, MSR, and recovery partitions (no ESP).
-      Exposed as SATA so the bare-metal Windows drivers can boot without
-      VirtIO guest drivers. Switch to bus='virtio' after installing the
-      VirtIO drivers inside the guest for better performance.
+      Uses VirtIO for optimal I/O performance.
+      NOTE: VirtIO guest drivers must be installed in Windows first.
+      If the VM won't boot, switch bus back to 'sata' and target to 'sdb'.
     -->
     <disk type='block' device='disk'>
-      <driver name='qemu' type='raw'/>
+      <driver name='qemu' type='raw' cache='none' io='native' discard='unmap'/>
       <source dev='/dev/nvme0n1'/>
-      <target dev='sdb' bus='sata'/>
+      <target dev='vdb' bus='virtio'/>
+      <iothread>1</iothread>
     </disk>
 
 
@@ -138,6 +148,7 @@
       <backend type='emulator' version='2.0'/>
     </tpm>
 
-    <memballoon model='virtio'/>
+    <!-- Disabled for performance — no memory balloon overhead -->
+    <memballoon model='none'/>
   </devices>
 </domain>

@@ -20,7 +20,7 @@ wallpaperplugin=org.kde.image
 [Containments][1][General]
 changedPositions={"desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop":["5120x1440,2133x1200","11","3"],"desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop":["5120x1440,2133x1200","11","2"],"desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop":["5120x1440,2133x1200","11","0"],"desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop":["5120x1440,2133x1200","11","1"]}
 lastResolution=5120x1440
-positions={"2133x1200":["1","19","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","9","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","9","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","9","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","9","0"],"5120x1440":["12","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","11","1","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","11","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","11","0","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","11","2"]}
+positions={"2133x1200":["1","19","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","9","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","9","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","9","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","9","0"],"5120x1440":["12","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","11","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","11","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","11","3","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","11","0"]}
 sortMode=-1
 
 [Containments][1][Wallpaper][org.kde.image][General]
@@ -193,4 +193,4 @@ SlidePaths=/usr/share/wallpapers/
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6
+screenMapping=desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6

@@ -1,0 +1,7 @@
+:root {
+    --mermaid-theme: dark;
+}
+
+[lang='mermaid'] .label {
+    color: #adbac7;
+}

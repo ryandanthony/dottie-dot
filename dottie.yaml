@@ -177,6 +177,22 @@ profiles:
         target: ~/.local/share/mime/packages/custom-mimetypes.xml
         postLink: "update-mime-database ~/.local/share/mime"
 
+      # Typora - GitHub Soft Dark theme
+      - source: dotfiles/Typora/themes/github-soft-dark.css
+        target: ~/.config/Typora/themes/github-soft-dark.css
+
+      # Typora - GitHub Soft Dark theme (codeblock highlighting)
+      - source: dotfiles/Typora/themes/github-soft-dark/codeblock.dark.css
+        target: ~/.config/Typora/themes/github-soft-dark/codeblock.dark.css
+
+      # Typora - GitHub Soft Dark theme (mermaid dark mode)
+      - source: dotfiles/Typora/themes/github-soft-dark/mermaid.dark.css
+        target: ~/.config/Typora/themes/github-soft-dark/mermaid.dark.css
+
+      # Typora - GitHub Soft Dark theme (source mode styling)
+      - source: dotfiles/Typora/themes/github-soft-dark/sourcemode.dark.css
+        target: ~/.config/Typora/themes/github-soft-dark/sourcemode.dark.css
+
     install:
       # APT packages - desktop tools
       apt:
