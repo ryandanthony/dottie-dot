@@ -199,6 +199,9 @@ profiles:
         - flameshot
         - kmail
         - qalculate-gtk
+        - remmina
+        - remmina-plugin-rdp
+        - remmina-plugin-secret
         - qemu-kvm
         - libvirt-daemon-system
         - libvirt-clients
@@ -261,6 +264,7 @@ profiles:
           repo: "deb [signed-by=${SIGNING_FILE}] http://apt.insync.io/ubuntu ${VERSION_CODENAME} non-free contrib"
           packages:
             - insync
+            #- insync-headless
 
   # ============================================================================
   # DEV PROFILE

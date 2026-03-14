@@ -84,7 +84,9 @@
         "https://github.github.com/spec-kit": true,
         "https://github.github.com": true,
         "https://*.github.com": true,
-        "https://speckit.org": true
+        "https://speckit.org": true,
+        "https://www.nuget.org": true,
+        "https://*.nuget.org": true
     },
     "git.enableSmartCommit": true,
     "chat.viewSessions.orientation": "stacked"
