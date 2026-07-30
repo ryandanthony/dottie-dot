@@ -60,6 +60,12 @@ alias k='kubectl'
 alias azl='az login'
 alias azs='az account show'
 
+# netclaw
+alias netclaw='~/.netclaw/bin/netclaw'
+
+# jcode - default to Claude Haiku
+alias jcode='jcode -m claude-haiku-4-5-20251001'
+
 # .NET aliases
 alias dn='dotnet'
 alias dnr='dotnet run'
@@ -73,6 +79,13 @@ export PATH="$HOME/bin:$HOME/.local/bin:$PATH"
 export DOTNET_ROOT="$HOME/.dotnet"
 export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"
 
+# Source bashrc.d scripts
+if [ -d "$HOME/.bashrc.d" ]; then
+    for file in "$HOME/.bashrc.d"/*.sh; do
+        [ -f "$file" ] && . "$file"
+    done
+fi
+
 # Rust (cargo)
 if [ -d "$HOME/.cargo/bin" ]; then
     export PATH="$HOME/.cargo/bin:$PATH"
@@ -83,6 +96,11 @@ if [ -d "/usr/local/go/bin" ]; then
     export PATH="$PATH:/usr/local/go/bin"
     export PATH="$PATH:$HOME/go/bin"
 fi
+
+export JCODE_NO_AUTO_UPDATE=1 
+
+# jcode built-in SearXNG web search (search.ants.zone, self-hosted on the NAS)
+export JCODE_SEARXNG_URL="https://mcpuser:E7DRdzKJCQeAmgIaY_3an9aSySjqGnMJ@search.ants.zone"
 
 # Editor
 export EDITOR=code
@@ -129,3 +147,5 @@ export STARSHIP_CONFIG="$HOME/.config/starship-bash.toml"
 if command -v starship &> /dev/null; then
     eval "$(starship init bash)"
 fi
+# netclaw shell setup
+. '/home/ryan/.netclaw/env'
