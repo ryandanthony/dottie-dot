@@ -10,9 +10,9 @@ Validates `dottie.yaml` in this repo (`~/.dottie`) for a profile: YAML syntax, r
 ## Usage
 
 ```bash
-dottie validate <profile>          # validate one profile
-dottie validate                    # list available profiles
-dottie validate <profile> -c <path>  # validate a config at a custom path
+dottie validate -p <profile>         # validate one profile
+dottie validate                     # list available profiles (default profile if -p omitted)
+dottie validate -p <profile> -c <path>  # validate a config at a custom path
 ```
 
 ## Available profiles in this repo
@@ -26,9 +26,9 @@ dottie validate <profile> -c <path>  # validate a config at a custom path
 ## Steps
 
 1. `cd ~/.dottie`
-2. Run `dottie validate <profile>` for the profile the user cares about (default to `default` if unspecified, or run bare `dottie validate` to enumerate profiles).
+2. Run `dottie validate -p <profile>` for the profile the user cares about (default to `default` if unspecified, or run bare `dottie validate` to enumerate profiles).
 3. Report the pass/fail summary. On failure, show the specific line/field errors dottie prints and propose the fix directly in `dottie.yaml`.
-4. After editing `dottie.yaml`, always re-run `dottie validate <profile>` to confirm the fix before telling the user it's done.
+4. After editing `dottie.yaml`, always re-run `dottie validate -p <profile>` to confirm the fix before telling the user it's done.
 
 ## Related
 

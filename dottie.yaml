@@ -266,6 +266,14 @@ profiles:
             - insync
             #- insync-headless
 
+        # Claude Desktop - Anthropic's Claude desktop app (beta on Linux)
+        # https://code.claude.com/docs/en/desktop-linux
+        - name: claude-desktop
+          key_url: https://downloads.claude.ai/claude-desktop/key.asc
+          repo: "deb [arch=${MS_ARCH} signed-by=${SIGNING_FILE}] https://downloads.claude.ai/claude-desktop/apt/stable stable main"
+          packages:
+            - claude-desktop
+
   # ============================================================================
   # DEV PROFILE
   # Full development environment extending desktop profile

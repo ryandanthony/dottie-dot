@@ -20,7 +20,7 @@ dottie apply -p <profile> --force    # back up conflicting dotfiles and overwrit
 ## Steps
 
 1. `cd ~/.dottie`
-2. `dottie validate <profile>` — confirm the config is valid first.
+2. `dottie validate -p <profile>` — confirm the config is valid first.
 3. `dottie apply -p <profile> --dry-run` — preview the full set of dotfile + software changes.
 4. Review with the user, especially any file conflicts or destructive-looking installs (aptRepos, VM/libvirt setup, Docker group changes).
 5. Run for real: `dottie apply -p <profile>` (add `--force` only if conflicts were reviewed and approved).
@@ -29,7 +29,7 @@ dottie apply -p <profile> --force    # back up conflicting dotfiles and overwrit
 ## Equivalent manual steps
 
 ```bash
-dottie validate <profile>
+dottie validate -p <profile>
 dottie link -p <profile>
 dottie install -p <profile>
 ```

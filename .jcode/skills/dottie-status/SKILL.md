@@ -25,7 +25,7 @@ dottie status -p <profile>
 This command is under active development upstream (dottie repo). If `dottie status` errors or behaves unexpectedly, fall back to:
 
 ```bash
-dottie validate <profile>   # check the config itself
+dottie validate -p <profile>           # check the config itself
 dottie link -p <profile> --dry-run     # see pending dotfile changes
 dottie install -p <profile> --dry-run  # see pending software changes
 ```
