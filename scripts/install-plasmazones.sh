@@ -16,10 +16,27 @@ set -euo pipefail
 REPO="fuddlesworth/PlasmaZones"
 BINARY="plasmazones"
 
+# --- logging: mirror everything to a log file for post-mortem debugging -----
+# dottie only surfaces the exit code, so on failure the build output is lost.
+# Anchor the log next to this script (independent of dottie's cwd) and tee all
+# stdout+stderr into it. The log is truncated per run and gitignored.
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+LOG_FILE="${SCRIPT_DIR}/install-plasmazones.log"
+: > "${LOG_FILE}"
+exec > >(tee -a "${LOG_FILE}") 2>&1
+printf '=== install-plasmazones.sh run: %s ===\n' "$(date -Is 2>/dev/null || date)"
+
 log()  { printf '  %s\n' "$*"; }
 ok()   { printf '\xe2\x9c\x93 %s\n' "$*"; }
 warn() { printf '\xe2\x9a\xa0 %s\n' "$*"; }
 err()  { printf '\xe2\x9c\x97 %s\n' "$*" >&2; }
+
+# On any failure, point the operator at the full log before exiting.
+on_err() {
+    local code=$?
+    err "install-plasmazones.sh failed (exit ${code}). Full log: ${LOG_FILE}"
+}
+trap on_err ERR
 
 # --- sudo handling (matches scripts/setup-libvirt.sh) -----------------------
 if [[ $EUID -ne 0 ]]; then

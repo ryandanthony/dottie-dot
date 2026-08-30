@@ -1,0 +1,8 @@
+# dottie release-metadata cache
+.cache
+
+# Backups created by `dottie link --force`
+*.dottie-backup-*
+
+# Install-script run logs (e.g. scripts/install-plasmazones.log)
+scripts/*.log
