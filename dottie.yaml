@@ -261,10 +261,13 @@ profiles:
         # tags. v1.9.14 is the newest tag containing obsidian_*_amd64.deb, so
         # pin `version` — otherwise @latest resolves to a mobile release with
         # no matching .deb asset. Bump when a newer desktop tag ships a .deb.
+        # `version` must be the LITERAL git tag (dottie queries
+        # releases/tags/<version> verbatim), hence the leading `v`.
+        # ${RELEASE_VERSION} strips that `v`, so the asset stays 1.9.14.
         - repo: obsidianmd/obsidian-releases
           asset: "obsidian_${RELEASE_VERSION}_amd64.deb"
           type: deb
-          version: 1.9.14
+          version: v1.9.14
 
 
       # Snap packages - desktop apps
