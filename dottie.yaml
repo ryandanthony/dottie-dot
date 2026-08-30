@@ -213,6 +213,7 @@ profiles:
         - kwin-common
         - liblayershellqtinterface6
         - libqt6shadertools6
+        - libkf6kcmutils-bin
         - plasma-activities
 
       # Custom scripts for desktop setup
@@ -227,9 +228,20 @@ profiles:
           type: deb
 
         # PlasmaZones - KDE virtual desktop zone manager (like FancyZones)
-        - repo: fuddlesworth/PlasmaZones
-          asset: "plasmazones_${RELEASE_VERSION}-1_amd64.deb"
+        # DISABLED: prebuilt .deb hard-pins qt6-*-private-abi (= 6.10.2), but
+        # KDE Neon ships Qt 6.11.1. Qt private ABIs are version-locked, so the
+        # release binary is uninstallable here. Not packaged in any apt repo.
+        # Re-enable if upstream ships a build matching Neon's Qt, or build it
+        # from source against the system Qt.
+        # - repo: fuddlesworth/PlasmaZones
+        #   asset: "plasmazones_${RELEASE_VERSION}-1_amd64.deb"
+        #   type: deb
+
+        # Obsidian - Note-taking app
+        - repo: obsidianmd/obsidian-releases
+          asset: "obsidian_${RELEASE_VERSION}_amd64.deb"
           type: deb
+
 
       # Snap packages - desktop apps
       snaps:
@@ -326,6 +338,10 @@ profiles:
           asset: "just-${RELEASE_VERSION}-${ARCH}-unknown-linux-musl.tar.gz"
           binary: just
 
+        # jcode - Terminal coding agent
+        # Installed via scripts/install-jcode.sh: the release tarball ships the
+        # binary as jcode-linux-<arch> plus a sidecar .bin payload.
+
         # lazygit - Terminal UI for git
         - repo: jesseduffield/lazygit
           asset: "lazygit_${RELEASE_VERSION}_Linux_${ARCH}.tar.gz"
@@ -340,6 +356,17 @@ profiles:
         - repo: ahmetb/kubectx
           asset: "kubens_v${RELEASE_VERSION}_linux_${ARCH}.tar.gz"
           binary: kubens
+
+        # NATS CLI - NATS server management CLI
+        - repo: nats-io/natscli
+          asset: "nats-${RELEASE_VERSION}-${MS_ARCH}.deb"
+          type: deb
+
+        # NATS NSC - A tool for creating NATS account and user access configurations
+        - repo: nats-io/nsc
+          asset: "nsc-v${RELEASE_VERSION}-${MS_ARCH}.deb"
+          type: deb
+
 
         # draw.io - Diagramming tool
         - repo: jgraph/drawio-desktop
@@ -359,6 +386,8 @@ profiles:
         - scripts/install-jetbrains-toolbox.sh
         - scripts/install-specify-cli.sh
         - scripts/install-nvm.sh
+        - scripts/install-dotnet-sdk.sh
+        - scripts/install-jcode.sh
 
       # APT repositories with packages
       aptRepos:
@@ -389,8 +418,14 @@ profiles:
             - dotnet-sdk-10.0
             - powershell
             - dotnet-sdk-8.0
-            #- azure-cli
             - azure-functions-core-tools-4
+
+        # Azure CLI (dedicated repo - not available in the shared Microsoft prod repo for noble)
+        - name: azure-cli
+          key_url: https://packages.microsoft.com/keys/microsoft.asc
+          repo: "deb [arch=${MS_ARCH}] https://packages.microsoft.com/repos/azure-cli/ ${VERSION_CODENAME} main"
+          packages:
+            - azure-cli
 
         # VS Code
         - name: vscode
