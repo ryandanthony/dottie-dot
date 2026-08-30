@@ -241,10 +241,16 @@ profiles:
         #   asset: "plasmazones_${RELEASE_VERSION}-1_amd64.deb"
         #   type: deb
 
-        # Obsidian - Note-taking app
+        # Obsidian - Note-taking app.
+        # NOTE: Obsidian publishes mobile-only releases (APK) as GitHub's
+        # "latest" (e.g. v1.13.8), while the desktop .deb only ships in older
+        # tags. v1.9.14 is the newest tag containing obsidian_*_amd64.deb, so
+        # pin `version` — otherwise @latest resolves to a mobile release with
+        # no matching .deb asset. Bump when a newer desktop tag ships a .deb.
         - repo: obsidianmd/obsidian-releases
           asset: "obsidian_${RELEASE_VERSION}_amd64.deb"
           type: deb
+          version: 1.9.14
 
 
       # Snap packages - desktop apps
