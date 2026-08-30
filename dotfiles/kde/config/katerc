@@ -9,7 +9,10 @@ Show Tab Bar=true
 Show Url Nav Bar=true
 
 [MainWindow]
-2 screens: Window-Maximized=true
+2 screens: Height=896
+2 screens: Width=1179
+5120x1440 screen: Height=742
+5120x1440 screen: Width=1767
 
 [filetree]
 editShade=30,78,103

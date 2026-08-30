@@ -42,7 +42,6 @@
     "chat.mcp.autostart": "onlyNew",
     "chat.agent.maxRequests": 10000,
     "redhat.telemetry.enabled": false,
-    "workbench.iconTheme": "vscode-icons",
     "[dockercompose]": {
         "editor.insertSpaces": true,
         "editor.tabSize": 2,
@@ -60,12 +59,12 @@
     "[html]": {
         "editor.defaultFormatter": "vscode.html-language-features"
     },
-    "gitlens.ai.model": "vscode",
-    "gitlens.ai.vscode.model": "copilot:gpt-4.1",
     "vsicons.dontShowNewVersionMessage": true,
     "workbench.secondarySideBar.defaultVisibility": "hidden",
     "git.autofetch": true,
     "chat.tools.urls.autoApprove": {
+        "https://code.visualstudio.com": true,
+        "https://github.com/microsoft/vscode/wiki/*": true,
         "https://github.com/ryandanthony/dottie": {
             "approveRequest": false,
             "approveResponse": true
@@ -86,8 +85,28 @@
         "https://*.github.com": true,
         "https://speckit.org": true,
         "https://www.nuget.org": true,
-        "https://*.nuget.org": true
+        "https://*.nuget.org": true,
+        "https://martendb.io": true,
+        "https://docs.recipe-scrapers.com": true,
+        "https://docs.avaloniaui.net": true,
+        "https://netclaw.dev": true
     },
     "git.enableSmartCommit": true,
-    "chat.viewSessions.orientation": "stacked"
+    "chat.viewSessions.orientation": "stacked",
+    "chat.tools.terminal.autoApprove": {
+        "dotnet build": true
+    },
+    "claudeCode.preferredLocation": "panel",
+    "terminal.integrated.mouseWheelScrollSensitivity": 3,
+    "workbench.colorTheme": "GitHub Dark Dimmed",
+    "chat.disableAIFeatures": true,
+    "claudeCode.useTerminal": true,
+    "yaml.disableSchemaDetection": [
+        "**/.github/workflows/*.yml",
+        "**/.github/workflows/*.yaml",
+        "**/.gitea/workflows/*.yml",
+        "**/.gitea/workflows/*.yaml",
+        "**/.forgejo/workflows/*.yml",
+        "**/.forgejo/workflows/*.yaml"
+    ],
 }

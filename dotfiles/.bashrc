@@ -64,10 +64,9 @@ alias azs='az account show'
 alias netclaw='~/.netclaw/bin/netclaw'
 
 # jcode - default to Claude Sonnet, plus shortcuts for other models
-alias jcode='jcode -m claude-sonnet-4-6'
-alias jcode-h='jcode -m claude-haiku-4-5-20251001'
-alias jcode-s='jcode -m claude-sonnet-4-6'
-alias jcode-o='jcode -m claude-opus-4-6'
+alias jc='jcode -m claude-sonnet-4-6'
+alias jch='jcode -m claude-haiku-4-5-20251001'
+alias jco='jcode -m claude-opus-4-6'
 
 # .NET aliases
 alias dn='dotnet'

@@ -134,10 +134,13 @@ ForegroundVisited=155,89,182
 
 [General]
 BrowserApplication=google-chrome.desktop
-ColorSchemeHash=2c3f86428c11011a7c64ee1e7f47c274d498ff10
+ColorSchemeHash=9d38eb71ded8ff549da26d57d7cbab9164da243a
+TerminalApplication=ghostty
 
 [KDE]
 LookAndFeelPackage=org.kde.breezedark.desktop
+contrast=4
+frameContrast=0.2
 widgetStyle=Breeze
 
 [KFileDialog Settings]
@@ -150,12 +153,16 @@ Show Inline Previews=true
 Show Preview=false
 Show Speedbar=true
 Show hidden files=false
-Sort by=Name
+Sort by=Date
 Sort directories first=true
 Sort hidden files last=false
 Sort reversed=false
 Speedbar Width=152
 View Style=DetailTree
+
+[KScreen]
+ScreenScaleFactors=eDP-1=1;DP-8=1;
+XwaylandClientsScale=false
 
 [WM]
 activeBackground=39,44,49

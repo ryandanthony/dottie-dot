@@ -2,9 +2,15 @@
     {
         "data": [
             {
+                "abmLevel": 0,
                 "allowDdcCi": true,
                 "allowSdrSoftwareBrightness": false,
                 "autoBrightnessCurve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
                     0,
                     0,
                     0,
@@ -18,14 +24,19 @@
                 "colorPowerTradeoff": "PreferAccuracy",
                 "colorProfileSource": "EDID",
                 "connectorName": "eDP-1",
+                "customModes": [
+                ],
                 "detectedDdcCi": false,
                 "edidHash": "cb3563d46692e7e27caf3f9282d3265c",
                 "edidIdentifier": "SHP 5334 0 5 2020 0",
                 "edrPolicy": "always",
+                "hdrColorProfileSource": "EDID",
+                "hdrIccProfilePath": "",
                 "highDynamicRange": false,
                 "iccProfilePath": "",
                 "maxBitsPerColor": 0,
                 "mode": {
+                    "flags": 2,
                     "height": 1800,
                     "refreshRate": 59956,
                     "width": 3200
@@ -34,7 +45,7 @@
                 "rgbRange": "Full",
                 "scale": 1.5,
                 "sdrBrightness": 400,
-                "sdrGamutWideness": 0,
+                "sdrGamutWideness": 1,
                 "sharpness": 0,
                 "transform": "Normal",
                 "uuid": "01e55ec3-94ea-4911-82cc-844af5986f35",
@@ -42,9 +53,15 @@
                 "wideColorGamut": false
             },
             {
+                "abmLevel": 0,
                 "allowDdcCi": true,
                 "allowSdrSoftwareBrightness": true,
                 "autoBrightnessCurve": [
+                    0,
+                    0,
+                    0,
+                    0,
+                    0,
                     0,
                     0,
                     0,
@@ -54,18 +71,23 @@
                 ],
                 "autoRotation": "InTabletMode",
                 "automaticBrightness": false,
-                "brightness": 0.725,
+                "brightness": 1,
                 "colorPowerTradeoff": "PreferAccuracy",
                 "colorProfileSource": "EDID",
-                "connectorName": "DP-8",
+                "connectorName": "DP-7",
+                "customModes": [
+                ],
                 "detectedDdcCi": false,
                 "edidHash": "808fe41e6743c9782dfc693d5ef38b6a",
                 "edidIdentifier": "DEL 41229 809651020 35 2020 0",
                 "edrPolicy": "always",
+                "hdrColorProfileSource": "EDID",
+                "hdrIccProfilePath": "",
                 "highDynamicRange": false,
                 "iccProfilePath": "",
                 "maxBitsPerColor": 0,
                 "mode": {
+                    "flags": 0,
                     "height": 1440,
                     "refreshRate": 59977,
                     "width": 5120
@@ -162,6 +184,21 @@
                             "y": 0
                         },
                         "priority": 1,
+                        "replicationSource": ""
+                    }
+                ]
+            },
+            {
+                "lidClosed": false,
+                "outputs": [
+                    {
+                        "enabled": true,
+                        "outputIndex": 1,
+                        "position": {
+                            "x": 0,
+                            "y": 0
+                        },
+                        "priority": 0,
                         "replicationSource": ""
                     }
                 ]

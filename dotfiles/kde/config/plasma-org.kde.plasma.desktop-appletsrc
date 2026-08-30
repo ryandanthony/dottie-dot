@@ -18,9 +18,9 @@ plugin=org.kde.plasma.folder
 wallpaperplugin=org.kde.image
 
 [Containments][1][General]
-changedPositions={"desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop":["2133x1200,5120x1440","11","3"],"desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop":["2133x1200,5120x1440","0","0"],"desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop":["2133x1200,5120x1440","11","0"],"desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop":["2133x1200,5120x1440","11","1"]}
-lastResolution=2133x1200
-positions={"2133x1200":["10","19","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","9","1","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","9","3","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","0","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","9","0"],"5120x1440":["12","47","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","11","0","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","11","3","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","11","1","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","0"]}
+changedPositions={"desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop":["3840x1080,2133x1200,5120x1440","0","0"],"desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop":["2133x1200,5120x1440","0","4"],"desktop:/chrome-nlmaamaoahjiilibgbafebhafkeccjac-Default.desktop":["2133x1200,5120x1440","0","5"]}
+lastResolution=5120x1440
+positions={"2133x1200":["1","19","desktop:/chrome-odpamgpccakbbpbnkdhfafeahjaaedja-Default.desktop","0","4","desktop:/Document.docx.pdf","0","7","desktop:/chrome-nlmaamaoahjiilibgbafebhafkeccjac-Default.desktop","0","5","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","3","desktop:/error.txt","0","8","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","0","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","0","1","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","0","2","desktop:/chrome-kadndpdhfiaigidpmcgmgabmbcjnjbgn-Default.desktop","0","6"],"3840x1080":["15","35","desktop:/chrome-nlmaamaoahjiilibgbafebhafkeccjac-Default.desktop","0","2","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","11","3","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","0","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","11","1","desktop:/chrome-kadndpdhfiaigidpmcgmgabmbcjnjbgn-Default.desktop","0","3","desktop:/chrome-odpamgpccakbbpbnkdhfafeahjaaedja-Default.desktop","0","1","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","11","0"],"5120x1440":["12","47","desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop","11","1","desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop","0","4","desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop","0","0","desktop:/chrome-kadndpdhfiaigidpmcgmgabmbcjnjbgn-Default.desktop","0","3","desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop","11","3","desktop:/chrome-nlmaamaoahjiilibgbafebhafkeccjac-Default.desktop","0","5","desktop:/chrome-odpamgpccakbbpbnkdhfafeahjaaedja-Default.desktop","0","1","desktop:/Document.docx.pdf","0","2"]}
 sortMode=-1
 
 [Containments][1][Wallpaper][org.kde.image][General]
@@ -41,7 +41,7 @@ immutability=1
 plugin=org.kde.plasma.digitalclock
 
 [Containments][2][Applets][22][Configuration]
-popupHeight=451
+popupHeight=448
 popupWidth=560
 
 [Containments][2][Applets][22][Configuration][Appearance]
@@ -56,8 +56,8 @@ immutability=1
 plugin=org.kde.plasma.kickoff
 
 [Containments][2][Applets][3][Configuration]
-popupHeight=521
-popupWidth=661
+popupHeight=428
+popupWidth=632
 
 [Containments][2][Applets][3][Configuration][ConfigDialog]
 DialogHeight=630
@@ -75,7 +75,7 @@ immutability=1
 plugin=org.kde.plasma.icontasks
 
 [Containments][2][Applets][5][Configuration][General]
-launchers=applications:systemsettings.desktop,preferred://filemanager,preferred://browser,applications:chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,applications:chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,applications:chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,applications:code.desktop,applications:typora.desktop,applications:org.kde.konsole.desktop,applications:org.kde.kdeconnect.sms.desktop,applications:jetbrains-rider-ad25cc7c-56c1-47c6-9dcc-5897ac20c1cc.desktop,applications:org.plasmazones.editor.desktop,applications:spotify.desktop,applications:virt-manager.desktop
+launchers=applications:systemsettings.desktop,preferred://filemanager,preferred://browser,applications:chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,applications:chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,applications:code.desktop,applications:typora.desktop,applications:obsidian.desktop,applications:com.mitchellh.ghostty.desktop,applications:org.kde.konsole.desktop,applications:org.kde.kdeconnect.sms.desktop,applications:jetbrains-datagrip-c40e5f06-4be2-415c-aca0-ce5f76cee710.desktop,applications:jetbrains-rider-ad25cc7c-56c1-47c6-9dcc-5897ac20c1cc.desktop,applications:org.plasmazones.editor.desktop,applications:spotify.desktop,applications:chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop,applications:virt-manager.desktop,applications:chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,applications:chrome-nlmaamaoahjiilibgbafebhafkeccjac-Default.desktop,applications:de.haeckerfelix.Shortwave.desktop,applications:org.remmina.Remmina.desktop
 
 [Containments][2][Applets][6]
 immutability=1
@@ -123,6 +123,9 @@ plugin=org.kde.kscreen
 [Containments][2][Applets][7][Applets][17]
 immutability=1
 plugin=org.kde.plasma.networkmanagement
+
+[Containments][2][Applets][7][Applets][17][Configuration][General]
+currentDetailsTab=details
 
 [Containments][2][Applets][7][Applets][18]
 immutability=1
@@ -193,4 +196,4 @@ SlidePaths=/usr/share/wallpapers/
 
 [ScreenMapping]
 itemsOnDisabledScreens=
-screenMapping=desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6
+screenMapping=desktop:/Document.docx.pdf,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-eigpmdhekjlgjgcppnanaanbdmnlnagl-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-dcnhnnicolmfdokhhclacnkheoljbbjc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-nlmaamaoahjiilibgbafebhafkeccjac-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-imhnfbbfjbjfnmddhojfakbbiffdomkc-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-kadndpdhfiaigidpmcgmgabmbcjnjbgn-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-ipbbohpnamjmcblkjmkiadllhkfbdlal-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6,desktop:/chrome-odpamgpccakbbpbnkdhfafeahjaaedja-Default.desktop,0,4fe92649-6f07-4ffe-b4eb-d29458c6cfc6

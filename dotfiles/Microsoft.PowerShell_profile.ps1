@@ -32,6 +32,9 @@ Set-Alias -Name k -Value kubectl
 function azl { az login $args }
 function azs { az account show $args }
 
+# netclaw
+function netclaw { & "$HOME/.cache/dotnet_bundle_extract/netclaw" $args }
+
 # .NET aliases
 function dn { dotnet $args }
 function dnr { dotnet run $args }
