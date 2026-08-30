@@ -106,6 +106,9 @@ DEPS=(
     kf6-kcmutils-dev
     kf6-kglobalaccel-dev
     kf6-kcolorscheme-dev
+    # Kirigami: the settings KCM QML UI (src/settings) needs KF6Kirigami's
+    # cmake config; without it configure fails at src/settings/CMakeLists.txt.
+    kf6-kirigami-dev
     # KWin effect development (must match the running KWin)
     kwin-dev
     # Wayland layer-shell
@@ -122,7 +125,7 @@ if ! $SUDO apt-get install -y --no-install-recommends "${DEPS[@]}"; then
     REQUIRED=(build-essential cmake ninja-build extra-cmake-modules pkg-config
         qt6-base-dev qt6-base-private-dev qt6-declarative-dev qt6-declarative-private-dev
         qt6-shadertools-dev qt6-svg-dev qt6-wayland-dev qt6-wayland-dev-tools
-        kf6-kcmutils-dev kf6-kglobalaccel-dev kf6-kcolorscheme-dev kwin-dev
+        kf6-kcmutils-dev kf6-kglobalaccel-dev kf6-kcolorscheme-dev kf6-kirigami-dev kwin-dev
         libwayland-dev wayland-protocols libepoxy-dev)
     $SUDO apt-get install -y --no-install-recommends "${REQUIRED[@]}"
 fi
