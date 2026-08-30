@@ -219,6 +219,10 @@ profiles:
       # Custom scripts for desktop setup
       scripts:
         - scripts/setup-libvirt.sh
+        # PlasmaZones (KDE zone/tiling manager, FancyZones-like). Built from
+        # source against the system Qt/KWin: the prebuilt .deb is ABI-locked to
+        # Debian's older Qt and won't load on KDE Neon. See the script header.
+        - scripts/install-plasmazones.sh
 
       # GitHub releases - desktop app binaries
       github:
@@ -227,12 +231,12 @@ profiles:
           asset: "Joplin-${RELEASE_VERSION}.deb"
           type: deb
 
-        # PlasmaZones - KDE virtual desktop zone manager (like FancyZones)
-        # DISABLED: prebuilt .deb hard-pins qt6-*-private-abi (= 6.10.2), but
-        # KDE Neon ships Qt 6.11.1. Qt private ABIs are version-locked, so the
-        # release binary is uninstallable here. Not packaged in any apt repo.
-        # Re-enable if upstream ships a build matching Neon's Qt, or build it
-        # from source against the system Qt.
+        # PlasmaZones - KDE zone/tiling manager (like FancyZones)
+        # Installed via scripts/install-plasmazones.sh (source build), NOT here:
+        # the prebuilt .deb hard-pins qt6-*-private-abi (= 6.10.2) but KDE Neon
+        # ships Qt 6.11.1. Qt private ABIs are version-locked, so the release
+        # binary is uninstallable and the KWin effect won't load. Not in any
+        # apt repo for Ubuntu/Neon either.
         # - repo: fuddlesworth/PlasmaZones
         #   asset: "plasmazones_${RELEASE_VERSION}-1_amd64.deb"
         #   type: deb
