@@ -1,0 +1,128 @@
+{
+    "_version": 4,
+    "rules": [
+        {
+            "actions": [
+                {
+                    "mode": "snapping",
+                    "type": "setEngineMode"
+                }
+            ],
+            "enabled": true,
+            "id": "{88b13da5-54ff-5506-9b0f-939f7f191657}",
+            "match": {
+                "field": "screenId",
+                "op": "equals",
+                "value": "Dell Inc"
+            },
+            "name": "Dell Inc",
+            "priority": 301
+        },
+        {
+            "actions": [
+                {
+                    "mode": "snapping",
+                    "type": "setEngineMode"
+                },
+                {
+                    "layoutId": "{2bd3c71a-1609-4641-bbe2-b9c1284fcdc1}",
+                    "type": "setSnappingLayout"
+                }
+            ],
+            "enabled": true,
+            "id": "{c7852c0f-dbbf-544a-8a15-ba9334f140ce}",
+            "match": {
+                "field": "screenId",
+                "op": "equals",
+                "value": "Dell Inc.:Dell U4919DW:809651020"
+            },
+            "name": "Dell Inc.:Dell U4919DW:809651020",
+            "priority": 301
+        },
+        {
+            "actions": [
+                {
+                    "mode": "snapping",
+                    "type": "setEngineMode"
+                },
+                {
+                    "layoutId": "{2bd3c71a-1609-4641-bbe2-b9c1284fcdc1}",
+                    "type": "setSnappingLayout"
+                }
+            ],
+            "enabled": true,
+            "id": "{dd456925-4488-52ee-aa6c-3cce25757479}",
+            "match": {
+                "all": [
+                    {
+                        "field": "screenId",
+                        "op": "equals",
+                        "value": "Dell Inc.:Dell U4919DW:809651020"
+                    },
+                    {
+                        "field": "virtualDesktop",
+                        "op": "equals",
+                        "value": 1
+                    }
+                ]
+            },
+            "name": "Dell Inc.:Dell U4919DW:809651020 · Desktop 1",
+            "priority": 303
+        },
+        {
+            "actions": [
+                {
+                    "mode": "snapping",
+                    "type": "setEngineMode"
+                },
+                {
+                    "layoutId": "{2bd3c71a-1609-4641-bbe2-b9c1284fcdc1}",
+                    "type": "setSnappingLayout"
+                }
+            ],
+            "enabled": true,
+            "id": "{70664d75-4799-59c5-9f67-70de800f158d}",
+            "match": {
+                "field": "screenId",
+                "op": "equals",
+                "value": "Sharp Corporation:eDP-1-0x14D6"
+            },
+            "name": "Sharp Corporation:eDP-1-0x14D6",
+            "priority": 301
+        },
+        {
+            "actions": [
+                {
+                    "type": "excludePlacement"
+                }
+            ],
+            "enabled": true,
+            "id": "{526b77ac-d1b7-5049-83c9-0aba30cfa604}",
+            "match": {
+                "all": [
+                    {
+                        "field": "windowClass",
+                        "op": "endsWith",
+                        "value": "steam"
+                    },
+                    {
+                        "any": [
+                            {
+                                "field": "title",
+                                "op": "contains",
+                                "value": "notificationtoasts"
+                            },
+                            {
+                                "field": "windowClass",
+                                "op": "contains",
+                                "value": "notificationtoasts"
+                            }
+                        ]
+                    }
+                ]
+            },
+            "name": "Steam notifications",
+            "priority": 599
+        }
+    ]
+}

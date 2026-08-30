@@ -1,0 +1,48 @@
+{
+    "_version": 1,
+    "{2bd3c71a-1609-4641-bbe2-b9c1284fcdc1}": {
+        "showZoneNumbers": true,
+        "zoneAppearance": {
+            "{2364c280-23cf-4dfc-84e8-47246c61444b}": {
+                "activeOpacity": 0.5,
+                "borderColor": "#c8ffffff",
+                "borderRadius": 8,
+                "borderWidth": 2,
+                "highlightColor": "#800078d4",
+                "inactiveColor": "#40808080",
+                "inactiveOpacity": 0.3,
+                "useCustomColors": false
+            },
+            "{3c644530-479f-4dd2-93cf-75bd821450b2}": {
+                "activeOpacity": 0.5,
+                "borderColor": "#cca1a9b1",
+                "borderRadius": 8,
+                "borderWidth": 2,
+                "highlightColor": "#803daee9",
+                "inactiveColor": "#40a1a9b1",
+                "inactiveOpacity": 0.3,
+                "useCustomColors": false
+            },
+            "{a9323091-4a8a-44b5-abab-cd6ec2fc77b3}": {
+                "activeOpacity": 0.5,
+                "borderColor": "#cca1a9b1",
+                "borderRadius": 8,
+                "borderWidth": 2,
+                "highlightColor": "#803daee9",
+                "inactiveColor": "#40a1a9b1",
+                "inactiveOpacity": 0.3,
+                "useCustomColors": false
+            },
+            "{cea8895f-8f66-46d5-b143-defe9756d470}": {
+                "activeOpacity": 0.5,
+                "borderColor": "#c8ffffff",
+                "borderRadius": 8,
+                "borderWidth": 2,
+                "highlightColor": "#800078d4",
+                "inactiveColor": "#40808080",
+                "inactiveOpacity": 0.3,
+                "useCustomColors": false
+            }
+        }
+    }
+}

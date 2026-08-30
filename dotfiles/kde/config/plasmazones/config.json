@@ -1,0 +1,48 @@
+{
+    "Animations": {
+        "Profile": "{\"curve\":\"0.33,1.00,0.68,1.00\",\"duration\":300,\"minDistance\":0,\"sequenceMode\":1,\"staggerInterval\":50}"
+    },
+    "PerScreen": {
+        "ZoneSelector": {
+            "Dell Inc.:Dell U4919DW:809651020": {
+                "Position": 0,
+                "PreviewHeight": 73,
+                "PreviewWidth": 260,
+                "SizeMode": 0
+            },
+            "Sharp Corporation:eDP-1-0x14D6": {
+                "Position": 2
+            }
+        }
+    },
+    "Shortcuts": {
+        "Tiling": {
+            "DecMasterCount": "Meta+Shift+[",
+            "IncMasterCount": "Meta+Shift+]",
+            "Retile": "Meta+Shift+R"
+        }
+    },
+    "Snapping": {
+        "Behavior": {
+            "Triggers": [
+                {
+                    "modifier": 9,
+                    "mouseButton": 0
+                }
+            ],
+            "WindowHandling": {
+                "DefaultLayoutId": "{2bd3c71a-1609-4641-bbe2-b9c1284fcdc1}"
+            }
+        },
+        "ZoneSelector": {
+            "PreviewHeight": 73,
+            "PreviewWidth": 260
+        }
+    },
+    "Windows": {
+        "HideTitleBars": true,
+        "Radius": 0,
+        "ShowBorder": true
+    },
+    "_version": 6
+}
