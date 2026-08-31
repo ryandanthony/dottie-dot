@@ -68,15 +68,25 @@ log "Latest release: ${LATEST_TAG}"
 # also rebuild when the running KWin differs from what we last built with.
 KWIN_VER=$(kwin_wayland --version 2>/dev/null | grep -oE '[0-9]+(\.[0-9]+)+' | head -1 || true)
 STAMP="${HOME}/.local/share/plasmazones/.built-against"
+BUILT_KWIN=""
+INSTALLED_VER=""
+
+[[ -f "${STAMP}" ]] && BUILT_KWIN=$(cat "${STAMP}" 2>/dev/null || true)
+
 if command -v "${BINARY}" &>/dev/null; then
     INSTALLED_VER=$("${BINARY}" --version 2>/dev/null | grep -oE '[0-9]+(\.[0-9]+)+' | head -1 || true)
-    BUILT_KWIN=""
-    [[ -f "${STAMP}" ]] && BUILT_KWIN=$(cat "${STAMP}" 2>/dev/null || true)
-    if [[ "${INSTALLED_VER}" == "${LATEST_VER}" && "${BUILT_KWIN}" == "${KWIN_VER}" ]]; then
-        ok "PlasmaZones ${INSTALLED_VER} already installed (built against KWin ${KWIN_VER})"
-        exit 0
-    fi
-    log "Installed: ${INSTALLED_VER:-none} (KWin ${BUILT_KWIN:-unknown}) -> rebuilding for ${LATEST_VER} (KWin ${KWIN_VER})"
+fi
+
+# If both version and KWin match the stamp, skip installation
+if [[ -n "${BUILT_KWIN}" && -n "${INSTALLED_VER}" && "${INSTALLED_VER}" == "${LATEST_VER}" && "${BUILT_KWIN}" == "${KWIN_VER}" ]]; then
+    ok "PlasmaZones ${INSTALLED_VER} already installed (built against KWin ${KWIN_VER})"
+    exit 0
+fi
+
+if [[ -n "${INSTALLED_VER}" ]]; then
+    log "Installed: ${INSTALLED_VER} (KWin ${BUILT_KWIN:-unknown}) -> rebuilding for ${LATEST_VER} (KWin ${KWIN_VER})"
+else
+    log "PlasmaZones not found or version check failed; installing ${LATEST_VER} (KWin ${KWIN_VER})"
 fi
 
 # --- guard: KWin dev headers must match the running KWin --------------------
