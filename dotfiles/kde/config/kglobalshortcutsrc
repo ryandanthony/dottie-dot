@@ -378,5 +378,9 @@ _launch=Meta+;
 [services][jcode-launch-1.desktop]
 _launch=Meta+'
 
+[services][org.kde.spectacle.desktop]
+CurrentMonitorScreenShot=none
+OpenWithoutScreenshot=none
+
 [services][plasmazonesd.desktop]
 _launch=Shift

@@ -1,6 +1,7 @@
 {
     "_version": 1,
     "{2bd3c71a-1609-4641-bbe2-b9c1284fcdc1}": {
+        "outerGap": 0,
         "showZoneNumbers": true,
         "zoneAppearance": {
             "{2364c280-23cf-4dfc-84e8-47246c61444b}": {
@@ -43,6 +44,7 @@
                 "inactiveOpacity": 0.3,
                 "useCustomColors": false
             }
-        }
+        },
+        "zonePadding": 0
     }
 }
