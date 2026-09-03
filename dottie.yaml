@@ -386,7 +386,7 @@ profiles:
 
         # skillserver - SkillServer CLI for skill registry management
         - repo: netclaw-dev/skill-server
-          asset: "skillserver-${RELEASE_VERSION}-linux-${MS_ARCH}.tar.gz"
+          asset: "skillserver-${RELEASE_VERSION}-linux-x64.tar.gz"
           binary: skillserver
 
         # NATS CLI - NATS server management CLI
