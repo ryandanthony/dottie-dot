@@ -384,6 +384,11 @@ profiles:
           asset: "kubens_v${RELEASE_VERSION}_linux_${ARCH}.tar.gz"
           binary: kubens
 
+        # skillserver - SkillServer CLI for skill registry management
+        - repo: netclaw-dev/skill-server
+          asset: "skillserver-${RELEASE_VERSION}-linux-${MS_ARCH}.tar.gz"
+          binary: skillserver
+
         # NATS CLI - NATS server management CLI
         - repo: nats-io/natscli
           asset: "nats-${RELEASE_VERSION}-${MS_ARCH}.deb"
