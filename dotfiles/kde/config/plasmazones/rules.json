@@ -123,6 +123,41 @@
             },
             "name": "Steam notifications",
             "priority": 599
+        },
+        {
+            "actions": [
+                {
+                    "mode": "snapping",
+                    "type": "setEngineMode"
+                },
+                {
+                    "layoutId": "{2bd3c71a-1609-4641-bbe2-b9c1284fcdc1}",
+                    "type": "setSnappingLayout"
+                }
+            ],
+            "enabled": true,
+            "id": "{4fe55ad0-c71d-5534-9006-ed4ee781ce88}",
+            "match": {
+                "all": [
+                    {
+                        "field": "screenId",
+                        "op": "equals",
+                        "value": "Sharp Corporation:eDP-1-0x14D6"
+                    },
+                    {
+                        "field": "virtualDesktop",
+                        "op": "equals",
+                        "value": 1
+                    },
+                    {
+                        "field": "activity",
+                        "op": "equals",
+                        "value": "4fe92649-6f07-4ffe-b4eb-d29458c6cfc6"
+                    }
+                ]
+            },
+            "name": "",
+            "priority": 304
         }
     ]
 }
