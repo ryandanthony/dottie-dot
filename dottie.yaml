@@ -419,6 +419,7 @@ profiles:
         - scripts/install-specify-cli.sh
         - scripts/install-nvm.sh
         - scripts/install-dotnet-sdk.sh
+        - scripts/install-aspire-cli.sh
         - scripts/install-jcode.sh
 
       # APT repositories with packages
