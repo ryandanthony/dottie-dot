@@ -22,10 +22,12 @@ if ! head -1 "$TMP" | grep -q '^#!'; then
 fi
 
 if [[ -f "$TARGET" ]] && cmp -s "$TMP" "$TARGET"; then
+    chmod +x "$TARGET"
     echo "✓ ghostlay already up to date"
     exit 0
 fi
 
 mkdir -p "$DEST"
 install -m 755 "$TMP" "$TARGET"
+chmod +x "$TARGET"
 echo "✓ ghostlay installed to $TARGET"
