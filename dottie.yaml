@@ -229,6 +229,8 @@ profiles:
         - libqt6shadertools6
         - libkf6kcmutils-bin
         - plasma-activities
+        # Wayland keystroke injector, required by ghostlay
+        - wtype
 
       # Custom scripts for desktop setup
       scripts:
@@ -237,6 +239,9 @@ profiles:
         # source against the system Qt/KWin: the prebuilt .deb is ABI-locked to
         # Debian's older Qt and won't load on KDE Neon. See the script header.
         - scripts/install-plasmazones.sh
+        # ghostlay - terminal layout automation via wtype (Wayland). No
+        # upstream releases, so the script pulls the raw file into ~/bin.
+        - scripts/install-ghostlay.sh
 
       # GitHub releases - desktop app binaries
       github:
