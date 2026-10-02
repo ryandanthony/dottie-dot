@@ -2,8 +2,8 @@
 # Install ghostlay (automated terminal layout tool) into ~/bin.
 # https://github.com/PavelLoparev/ghostlay
 # Handled by a script because upstream publishes no GitHub releases, just a
-# single bash script on the master branch. Runtime dependency `wtype` is
-# installed via apt in the desktop profile.
+# single bash script on the master branch. Keystrokes are sent via ydotool
+# (apt, desktop profile) configured in dotfiles/ghostlay/config.
 set -euo pipefail
 
 URL="https://raw.githubusercontent.com/PavelLoparev/ghostlay/master/ghostlay"

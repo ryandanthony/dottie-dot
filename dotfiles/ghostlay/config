@@ -1,0 +1,26 @@
+delay = 0.5
+
+# Keystrokes via ydotool (uinput) instead of wtype: KWin doesn't expose the
+# Wayland virtual-keyboard protocol, so wtype fails on KDE Plasma.
+# Requires /dev/uinput access (scripts/setup-uinput.sh). Key names are
+# linux input event codes without the KEY_ prefix.
+bind = v:ydotool key CTRL+SHIFT+O
+bind = h:ydotool key CTRL+SHIFT+E
+bind = n:ydotool key SUPER+CTRL+RIGHTBRACE
+bind = p:ydotool key SUPER+CTRL+LEFTBRACE
+bind = rr:ydotool key SUPER+CTRL+ALT+SHIFT+RIGHT
+bind = rl:ydotool key SUPER+CTRL+ALT+SHIFT+LEFT
+bind = ru:ydotool key SUPER+CTRL+ALT+SHIFT+UP
+bind = rd:ydotool key SUPER+CTRL+ALT+SHIFT+DOWN
+bind = cmd:ydotool type "$TOKEN" 2>/dev/null && ydotool key ENTER 2>/dev/null
+
+# Shorthand layout
+dev = "nvim ." v opencode rr rr p h rd rd p
+
+# Expanded layout with name, description, workdir, and bind overrides
+# [layout]
+# name = "dev"
+# description = "Development workspace"
+# workdir = "~/projects/myapp"
+# actions = "nvim ." v opencode rr rr p h rd rd p
+# bind = v:"ydotool key CTRL+O"

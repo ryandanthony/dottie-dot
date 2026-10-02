@@ -88,6 +88,10 @@ profiles:
     extends: minimal
 
     dotfiles:
+      # ghostlay config (ydotool keybinds for Ghostty pane layouts)
+      - source: dotfiles/ghostlay/config
+        target: ~/.config/ghostlay/config
+
       # KDE Plasma global settings (theme, colors, default apps)
       - source: dotfiles/kde/config/kdeglobals
         target: ~/.config/kdeglobals
@@ -229,8 +233,9 @@ profiles:
         - libqt6shadertools6
         - libkf6kcmutils-bin
         - plasma-activities
-        # Wayland keystroke injector, required by ghostlay
-        - wtype
+        # Keystroke injector used by ghostlay. Not wtype: KWin lacks the
+        # Wayland virtual-keyboard protocol. Needs scripts/setup-uinput.sh.
+        - ydotool
 
       # Custom scripts for desktop setup
       scripts:
@@ -239,8 +244,9 @@ profiles:
         # source against the system Qt/KWin: the prebuilt .deb is ABI-locked to
         # Debian's older Qt and won't load on KDE Neon. See the script header.
         - scripts/install-plasmazones.sh
-        # ghostlay - terminal layout automation via wtype (Wayland). No
+        # ghostlay - terminal layout automation (keystrokes via ydotool). No
         # upstream releases, so the script pulls the raw file into ~/bin.
+        - scripts/setup-uinput.sh
         - scripts/install-ghostlay.sh
 
       # GitHub releases - desktop app binaries
