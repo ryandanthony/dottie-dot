@@ -1,0 +1,22 @@
+window-decoration = client
+font-family = JetBrainsMono Nerd Font Mono
+font-size = 12
+
+# --- Split navigation/resizing used by ghostlay (and by hand) ---------------
+# Ghostty's defaults collide with KDE global shortcuts, which KWin grabs first:
+#   ctrl+alt+arrows            -> KDE "Span Window"        (goto_split default)
+#   super+ctrl+[ / ]           -> KDE "Rotate Windows"     (goto_split prev/next default)
+#   super+ctrl+shift+arrows    -> KDE "Window One Desktop" (resize_split default)
+# ctrl+alt+shift+* is unused by KDE and PlasmaZones, so splits live there.
+keybind = ctrl+alt+shift+e=new_split:up
+keybind = ctrl+alt+shift+arrow_left=goto_split:left
+keybind = ctrl+alt+shift+arrow_right=goto_split:right
+keybind = ctrl+alt+shift+arrow_up=goto_split:up
+keybind = ctrl+alt+shift+arrow_down=goto_split:down
+keybind = ctrl+alt+shift+[=goto_split:previous
+keybind = ctrl+alt+shift+]=goto_split:next
+keybind = ctrl+alt+shift+page_up=resize_split:up,10
+keybind = ctrl+alt+shift+page_down=resize_split:down,10
+keybind = ctrl+alt+shift+home=resize_split:left,10
+keybind = ctrl+alt+shift+end=resize_split:right,10
+keybind = ctrl+alt+shift+equal=equalize_splits

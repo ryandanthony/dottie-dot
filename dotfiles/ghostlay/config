@@ -6,18 +6,59 @@ delay = 0.5
 # linux input event codes without the KEY_ prefix.
 # `grep -v ydotoold` drops the harmless "ydotoold backend unavailable" notice
 # (Ubuntu's ydotool 0.1.8 works fine without the daemon) but keeps real errors.
+#
+# Split keys match dotfiles/ghostty/config. Ghostty's defaults collide with
+# KDE global shortcuts, so navigation/resizing lives on CTRL+ALT+SHIFT.
 bind = v:ydotool key CTRL+SHIFT+O 2>&1 | grep -v ydotoold >&2
 bind = h:ydotool key CTRL+SHIFT+E 2>&1 | grep -v ydotoold >&2
-bind = n:ydotool key SUPER+CTRL+RIGHTBRACE 2>&1 | grep -v ydotoold >&2
-bind = p:ydotool key SUPER+CTRL+LEFTBRACE 2>&1 | grep -v ydotoold >&2
-bind = rr:ydotool key SUPER+CTRL+ALT+SHIFT+RIGHT 2>&1 | grep -v ydotoold >&2
-bind = rl:ydotool key SUPER+CTRL+ALT+SHIFT+LEFT 2>&1 | grep -v ydotoold >&2
-bind = ru:ydotool key SUPER+CTRL+ALT+SHIFT+UP 2>&1 | grep -v ydotoold >&2
-bind = rd:ydotool key SUPER+CTRL+ALT+SHIFT+DOWN 2>&1 | grep -v ydotoold >&2
-bind = cmd:{ ydotool type "$TOKEN" && ydotool key ENTER; } 2>&1 | grep -v ydotoold >&2
+bind = n:ydotool key CTRL+ALT+SHIFT+RIGHTBRACE 2>&1 | grep -v ydotoold >&2
+bind = p:ydotool key CTRL+ALT+SHIFT+LEFTBRACE 2>&1 | grep -v ydotoold >&2
+bind = gl:ydotool key CTRL+ALT+SHIFT+LEFT 2>&1 | grep -v ydotoold >&2
+bind = gr:ydotool key CTRL+ALT+SHIFT+RIGHT 2>&1 | grep -v ydotoold >&2
+bind = gu:ydotool key CTRL+ALT+SHIFT+UP 2>&1 | grep -v ydotoold >&2
+bind = gd:ydotool key CTRL+ALT+SHIFT+DOWN 2>&1 | grep -v ydotoold >&2
+# Resize moves the focused split's divider 10px per press.
+bind = rl:ydotool key CTRL+ALT+SHIFT+HOME 2>&1 | grep -v ydotoold >&2
+bind = rr:ydotool key CTRL+ALT+SHIFT+END 2>&1 | grep -v ydotoold >&2
+bind = ru:ydotool key CTRL+ALT+SHIFT+PAGEUP 2>&1 | grep -v ydotoold >&2
+bind = rd:ydotool key CTRL+ALT+SHIFT+PAGEDOWN 2>&1 | grep -v ydotoold >&2
+bind = hu:ydotool key CTRL+ALT+SHIFT+E 2>&1 | grep -v ydotoold >&2
+# Pause before typing into a TUI that is still starting (jcode needs ~2-3s).
+bind = wait:sleep 3
+# Shrink the pane ghostlay itself runs in (the layout's starting pane) until
+# it is 8 rows tall: exactly 2 htop meter rows + header + 5 processes with
+# htoprc-mini. Reads the real size each step, so window size doesn't matter.
+bind = fit8:k=PAGEDOWN; p=999; for i in $(seq 150); do r=$(stty size </dev/tty | cut -d" " -f1); (( r <= 8 )) && break; (( r > p )) && k=PAGEUP; p=$r; ydotool key CTRL+ALT+SHIFT+$k 2>/dev/null; sleep 0.05; done
+# Run compact htop in ghostlay's own pane. HTOPRC points at a separate config
+# (2 meter rows, no function bar), so plain `htop` keeps ~/.config/htop/htoprc.
+bind = top5:clear; HTOPRC=$HOME/.dottie/dotfiles/htop/htoprc-mini exec htop
+# Short pause between typing and Enter so TUI pickers (jcode /model) can filter.
+bind = cmd:{ ydotool type "$TOKEN" && sleep 0.6 && ydotool key ENTER; } 2>&1 | grep -v ydotoold >&2
 
 # Shorthand layout
 dev = "nvim ." v opencode rr rr p h rd rd p
+
+# workspace (run ghostlay from a single fresh Ghostty pane):
+#   +--------------------+--------------------+
+#   | jcode (Opus 5.5)   | shell              |
+#   | ~/code             | ~/code             |
+#   |                    +--------------------+
+#   |                    | jcode (Haiku 4.5)  |
+#   |                    | notebook vault     |
+#   |                    | /learn-spotify     |
+#   +--------------------+--------------------+
+#   | htop: top 5 processes by CPU            |
+#   +-----------------------------------------+
+#
+# - hu splits upward, so the pane ghostlay runs in stays at the bottom with
+#   full width. At the end, gd returns to it, fit8 shrinks it to 8 rows and
+#   top5 execs htop in place of ghostlay (quit htop -> back to a shell).
+# - Shorthand form on purpose: an expanded [layout] with workdir prefixes
+#   every typed command with "cd <workdir> &&", which would also be typed
+#   into jcode's prompt.
+# - `jcode -m` is ignored when the jcode server is already running, so models
+#   are picked by typing /model <filter>; Enter takes the top match.
+workspace = hu v h "cd ~/vaults/notebook-personal && jcode" wait "/model haiku 4.5 oauth" "/learn-spotify" gu "cd ~/code" gl "cd ~/code && jcode" wait "/model opus 5.5 high oauth" gd fit8 top5
 
 # Expanded layout with name, description, workdir, and bind overrides
 # [layout]

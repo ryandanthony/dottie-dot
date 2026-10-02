@@ -92,6 +92,11 @@ profiles:
       - source: dotfiles/ghostlay/config
         target: ~/.config/ghostlay/config
 
+      # Ghostty terminal: font + split keybinds moved off KDE-reserved combos
+      # (ghostlay layouts depend on these)
+      - source: dotfiles/ghostty/config
+        target: ~/.config/ghostty/config
+
       # KDE Plasma global settings (theme, colors, default apps)
       - source: dotfiles/kde/config/kdeglobals
         target: ~/.config/kdeglobals
