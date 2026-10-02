@@ -2,6 +2,13 @@ window-decoration = client
 font-family = JetBrainsMono Nerd Font Mono
 font-size = 12
 
+# New windows always start in the notebook vault. Without disabling
+# window-inherit-working-directory, a new window would copy the focused
+# window's directory instead. Splits and tabs still inherit their parent's
+# directory (split-/tab-inherit-working-directory default to true).
+working-directory = ~/vaults/notebook-personal
+window-inherit-working-directory = false
+
 # --- Split navigation/resizing used by ghostlay (and by hand) ---------------
 # Ghostty's defaults collide with KDE global shortcuts, which KWin grabs first:
 #   ctrl+alt+arrows            -> KDE "Span Window"        (goto_split default)
