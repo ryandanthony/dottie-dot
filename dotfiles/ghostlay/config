@@ -41,13 +41,13 @@ dev = "nvim ." v opencode rr rr p h rd rd p
 # workspace (run ghostlay from a single fresh Ghostty pane):
 #   +--------------------+--------------------+
 #   | jcode (Opus 5.5)   | shell              |
-#   | ~/code             | ~/code             |
+#   | ~/code             | ~/vaults           |
 #   |                    +--------------------+
 #   |                    | jcode (Haiku 4.5)  |
 #   |                    | notebook vault     |
 #   |                    | /learn-spotify     |
 #   +--------------------+--------------------+
-#   | htop: top 5 processes by CPU            |
+#   | htop: top 5 processes by CPU%           |
 #   +-----------------------------------------+
 #
 # - hu splits upward, so the pane ghostlay runs in stays at the bottom with
@@ -58,7 +58,7 @@ dev = "nvim ." v opencode rr rr p h rd rd p
 #   into jcode's prompt.
 # - `jcode -m` is ignored when the jcode server is already running, so models
 #   are picked by typing /model <filter>; Enter takes the top match.
-workspace = hu v h "cd ~/vaults/notebook-personal && jcode" wait "/model haiku 4.5 oauth" "/learn-spotify" gu "cd ~/code" gl "cd ~/code && jcode" wait "/model opus 5.5 high oauth" gd fit8 top5
+workspace = hu v h "cd ~/vaults/notebook-personal && jcode" wait "/model haiku 4.5 oauth" "/learn-spotify" gu "cd ~/vaults" gl "cd ~/code && jcode" wait "/model opus 5.5 high oauth" gd fit8 top5
 
 # Expanded layout with name, description, workdir, and bind overrides
 # [layout]
