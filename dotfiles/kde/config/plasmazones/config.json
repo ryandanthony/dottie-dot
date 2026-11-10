@@ -3,22 +3,9 @@
         "Profile": "{\"curve\":\"0.33,1.00,0.68,1.00\",\"duration\":300,\"minDistance\":0,\"sequenceMode\":1,\"staggerInterval\":50}"
     },
     "Editor": {
-        "FillOnDrop": {
-            "Enabled": true,
-            "Modifier": 67108864
-        },
-        "Shortcuts": {
-            "Duplicate": "Ctrl+D",
-            "Fill": "Ctrl+Shift+F",
-            "SplitHorizontal": "Ctrl+Shift+H",
-            "SplitVertical": "Ctrl+Alt+V"
-        },
         "Snapping": {
-            "EdgeEnabled": true,
-            "GridEnabled": true,
             "IntervalX": 0.01,
-            "IntervalY": 0.01,
-            "OverrideModifier": 33554432
+            "IntervalY": 0.01
         }
     },
     "PerScreen": {
@@ -45,7 +32,7 @@
         "Behavior": {
             "Triggers": [
                 {
-                    "modifier": 9,
+                    "modifier": 1,
                     "mouseButton": 0
                 }
             ],
@@ -63,5 +50,5 @@
         "Radius": 0,
         "ShowBorder": true
     },
-    "_version": 6
+    "_version": 8
 }
