@@ -5,7 +5,7 @@
 #   PlasmaZones is a KWin effect. The plugin IID and Qt private ABI are locked
 #   to the exact Qt/KWin it was compiled against. Upstream's prebuilt .deb is
 #   built on Debian unstable (Qt 6.10.x) and hard-pins qt6-*-private-abi
-#   (= 6.10.x). KDE Neon ships *newer* Qt (6.11.x) and KWin 6.7.x, so no Debian
+#   (= 6.10.x). KDE Neon ships *newer* Qt (6.11.x) and its own KWin (6.8.x as of 2026-11), so no Debian
 #   binary will ever install/load here. Building against the system libraries is
 #   the only reliable route on Neon, and it re-links to whatever KWin is current.
 #
@@ -14,7 +14,7 @@
 set -euo pipefail
 
 REPO="fuddlesworth/PlasmaZones"
-BINARY="plasmazones"
+BINARY="plasmazonesd"  # daemon; there is no plain `plasmazones` binary
 
 # --- logging: mirror everything to a log file for post-mortem debugging -----
 # dottie only surfaces the exit code, so on failure the build output is lost.
