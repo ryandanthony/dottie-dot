@@ -9,6 +9,20 @@ font-size = 12
 working-directory = ~/vaults/notebook-personal
 window-inherit-working-directory = false
 
+# --- Shell integration / agent-friendly features ----------------------------
+# ssh-env: map TERM to xterm-256color on remote hosts and forward
+#   COLORTERM/TERM_PROGRAM. ssh-terminfo: install xterm-ghostty terminfo on
+#   first connect (needs `tic` remotely, cached locally; see `ghostty +ssh-cache`).
+# Other features keep their defaults (cursor, title, path on; sudo off).
+shell-integration-features = ssh-env,ssh-terminfo
+
+# Desktop notification + bell when a command running in an unfocused split/tab
+# finishes after 10s+ (long builds, tests, agent shell jobs). Needs shell
+# integration (OSC 133), which bash gets automatically.
+notify-on-command-finish = unfocused
+notify-on-command-finish-action = notify,bell
+notify-on-command-finish-after = 10s
+
 # --- Split navigation/resizing used by ghostlay (and by hand) ---------------
 # Ghostty's defaults collide with KDE global shortcuts, which KWin grabs first:
 #   ctrl+alt+arrows            -> KDE "Span Window"        (goto_split default)
