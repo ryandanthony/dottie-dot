@@ -15,19 +15,19 @@ tileseditorEnabled=false
 
 [Tiling][55febd12-d7f2-4038-bf60-6cfe74d94170][]
 padding=4
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Tiling][55febd12-d7f2-4038-bf60-6cfe74d94170][01e55ec3-94ea-4911-82cc-844af5986f35]
 padding=4
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.15031249999999996},{"width":0.5996875}]}
+tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Tiling][55febd12-d7f2-4038-bf60-6cfe74d94170][838d3831-258c-4bd1-beec-921f4a0656e2]
 padding=4
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.25},{"width":0.5},{"width":0.25}]}
+tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Tiling][55febd12-d7f2-4038-bf60-6cfe74d94170][9e0905f4-c3af-4ce5-a0b9-ba03c5bf6637]
 padding=4
-tiles={"layoutDirection":"horizontal","tiles":[{"width":0.153515625},{"width":0.5699218750000001},{"width":0.2765624999999998}]}
+tiles={"layoutDirection":"horizontal","tiles":[]}
 
 [Windows]
 ElectricBorderCornerRatio=0.26
