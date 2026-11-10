@@ -1,5 +1,8 @@
 window-decoration = client
-font-family = JetBrainsMono Nerd Font Mono
+# Ghostty's bundled fontconfig only exposes the short family name ("NFM"); the
+# long "JetBrainsMono Nerd Font Mono" silently fell back to Hack. Check with
+# `ghostty +list-fonts --family="JetBrainsMono NFM"`.
+font-family = JetBrainsMono NFM
 font-size = 12
 
 # New windows always start in the notebook vault. Without disabling
