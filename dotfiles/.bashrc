@@ -101,8 +101,9 @@ fi
 
 export JCODE_NO_AUTO_UPDATE=1 
 
-# jcode built-in SearXNG web search (search.ants.zone, self-hosted on the NAS)
-export JCODE_SEARXNG_URL="https://mcpuser:E7DRdzKJCQeAmgIaY_3an9aSySjqGnMJ@search.ants.zone"
+# jcode built-in SearXNG web search (search.ants.zone, self-hosted on the NAS).
+# JCODE_SEARXNG_URL contains basic-auth creds, so it lives in the untracked
+# ~/.bashrc.d/jcode-searxng.sh (sourced above), not in this public repo.
 
 # Editor
 export EDITOR=code
