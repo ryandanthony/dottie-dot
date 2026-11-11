@@ -1,13 +1,13 @@
 #!/bin/bash
 # Install multiple .NET SDK versions using the official dotnet-install script
 # Usage: ./scripts/install-dotnet-sdk.sh
-# Environment: DOTNET_VERSIONS="10.0.302 9.0.100 8.0.404" (space-separated list)
+# Environment: DOTNET_VERSIONS="11.0.100 10.0.404 9.0.321" (space-separated list)
 # Supports Major.Minor.Patch format (e.g., 10.0.302) or Major.Minor (e.g., 10.0)
 
 set -euo pipefail
 
 # Allow versions to be specified via env var, default to these versions
-DOTNET_VERSIONS_STR="${DOTNET_VERSIONS:-10.0.302 9.0.100}"
+DOTNET_VERSIONS_STR="${DOTNET_VERSIONS:-11.0.100 10.0.404 9.0.321}"
 IFS=' ' read -r -a DOTNET_VERSIONS <<< "$DOTNET_VERSIONS_STR"
 
 log() {
