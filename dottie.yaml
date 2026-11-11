@@ -464,15 +464,13 @@ profiles:
             - docker-buildx-plugin
             - docker-compose-plugin
 
-        # Microsoft packages (.NET, PowerShell, Azure CLI)
+        # Microsoft packages (PowerShell, Azure Functions Core Tools)
+        # .NET SDKs come from scripts/install-dotnet-sdk.sh (~/.dotnet), not apt
         - name: microsoft-packages
           key_url: https://packages.microsoft.com/keys/microsoft.asc
           repo: "deb [arch=${MS_ARCH}] https://packages.microsoft.com/repos/microsoft-ubuntu-${VERSION_CODENAME}-prod/ ${VERSION_CODENAME} main"
           packages:
-            #- dotnet-sdk-9.0
-            - dotnet-sdk-10.0
             - powershell
-            - dotnet-sdk-8.0
             - azure-functions-core-tools-4
 
         # Azure CLI (dedicated repo - not available in the shared Microsoft prod repo for noble)
